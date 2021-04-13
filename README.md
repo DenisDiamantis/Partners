@@ -14,7 +14,7 @@
 
 
 ## Data Flow Diagram
-![](pic1.png)
+![](team09\docs\markdown\uml\requirements\pic1.png)
 Στο GitLab για κάποιο λόγο δεν εμφανίζεται το διάγραμμα, είναι το pic1.png.
 ### Ακρώνυμα και Συντομογραφίες
 
@@ -32,8 +32,7 @@
 
 ### Μοντέλο Περιπτώσεων Χρήσης
 
-
-![](pic2.png)
+![](team09\docs\markdown\uml\requirements\pic2.png)
 Στο GitLab για κάποιο λόγο δεν εμφανίζεται το διάγραμμα, είναι το pic2.png.
 
 |  Περιπτώσεις χρήσης  |   Ανάλυση Περιπτώσεων Χρήσης     |
