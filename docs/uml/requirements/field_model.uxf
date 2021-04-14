@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>312</x>
+      <y>552</y>
+      <w>192</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>ΦΟΙΤΗΤΗΣ
+--
+- Ονοματεπώνυμο: String
+- Αριθμός μητρώου: String
+- E-mail: String
+- Διαθέσιμες Μέρες &amp; Ώρες: String
+- Δεξιότητες: String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>584</x>
+      <y>296</y>
+      <w>176</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>ΑΝΑΖΗΤΗΣΗ
+--
+- Μάθημα: String
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>304</x>
+      <y>296</y>
+      <w>200</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>ΕΓΓΡΑΦΗ ΣΕ ΟΜΑΔΑ
+--
+- Αριθμός μελών: int
+- Απαιτήσεις: String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>840</x>
+      <y>144</y>
+      <w>200</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>
+
+
+ΔΙΑΧΕΙΡΙΣΤΙΚΗ ΟΜΑΔΑ
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>936</x>
+      <y>232</y>
+      <w>72</w>
+      <h>232</h>
+    </coordinates>
+    <panel_attributes>
+καταχωρεί</panel_attributes>
+    <additional_attributes>10.0;270.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>856</x>
+      <y>448</y>
+      <w>200</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>ΕΡΓΑΣΙΕΣ
+--
+- Μάθημα: String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>24</y>
+      <w>112</w>
+      <h>288</h>
+    </coordinates>
+    <panel_attributes>
+
+
+
+
+
+
+
+καταλήγει</panel_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0;120.0;340.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>456</x>
+      <y>16</y>
+      <w>128</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>
+
+ΕΠΙΛΟΓΗ
+ΟΜΑΔΑΣ
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>248</x>
+      <y>16</y>
+      <w>128</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>
+
+ΔΗΜΙΟΥΡΓΙΑ
+ΟΜΑΔΑΣ
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>496</x>
+      <y>336</y>
+      <w>216</w>
+      <h>272</h>
+    </coordinates>
+    <panel_attributes>
+
+κάνει</panel_attributes>
+    <additional_attributes>220.0;10.0;220.0;320.0;10.0;320.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>144</x>
+      <y>32</y>
+      <w>184</w>
+      <h>576</h>
+    </coordinates>
+    <panel_attributes>
+
+
+
+
+
+
+εκτελεί</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;10.0;10.0;700.0;210.0;700.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>304</x>
+      <y>840</y>
+      <w>200</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>ΛΟΓΑΡΙΑΣΜΟΣ
+--
+- Αριθμός μητρώου: String
+- Προσωπικός Κωδικός Φοιτητή: String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>392</x>
+      <y>632</y>
+      <w>40</w>
+      <h>224</h>
+    </coordinates>
+    <panel_attributes>
+έχει</panel_attributes>
+    <additional_attributes>10.0;260.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>424</x>
+      <y>632</y>
+      <w>72</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>
+
+  αξιολογεί</panel_attributes>
+    <additional_attributes>70.0;10.0;70.0;80.0;10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>312</x>
+      <y>80</y>
+      <w>88</w>
+      <h>232</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;includes&gt;&gt;</panel_attributes>
+    <additional_attributes>90.0;270.0;90.0;140.0;10.0;140.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>80</y>
+      <w>96</w>
+      <h>232</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;includes&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;270.0;10.0;140.0;100.0;140.0;100.0;10.0</additional_attributes>
+  </element>
+</diagram>
