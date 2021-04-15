@@ -607,17 +607,6 @@ enterLoginData()</panel_attributes>
     <additional_attributes>10.0;10.0;520.0;10.0</additional_attributes>
   </element>
   <element>
-    <id>Text</id>
-    <coordinates>
-      <x>290</x>
-      <y>1100</y>
-      <w>160</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>[ACCOUNT CHANGES]</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
       <x>640</x>
@@ -861,6 +850,17 @@ createError()</panel_attributes>
       <h>20</h>
     </coordinates>
     <panel_attributes>type=termination</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>290</x>
+      <y>1100</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>[ACCOUNT CHANGES]</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

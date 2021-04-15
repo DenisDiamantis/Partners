@@ -60,4 +60,4 @@
 
 ## Τα αντίστοιχα διαγράμματα ροής
 
-![](docs/markdown/uml/requirements/account_act_diagram.png)
+![](uml/requirements/account_act_diagram.png)
