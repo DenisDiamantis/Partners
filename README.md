@@ -108,7 +108,7 @@
 ### Κλάσεις ανάλυσης
 
 
-![](docs/markdown/uml/requirements/class_diagram.png)
+![](docs/markdown/uml/requirements/classes.png)
 
 ## Διαγράμματα Ροής
 
