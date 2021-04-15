@@ -14,7 +14,7 @@
 
 
 ## Data Flow Diagram
-![](docs/markdown/uml/requirements/pic1.png)
+![](docs/markdown/uml/requirements/drd.png)
 ### Ακρώνυμα και Συντομογραφίες
 
 |  Έννοια  |   Επεξήγηση     |
@@ -31,7 +31,7 @@
 
 ## Μοντέλο Περιπτώσεων Χρήσης
 
-![](docs/markdown/uml/requirements/pic2.png)
+![](docs/markdown/uml/requirements/use_case.png)
 
 
 | Περιπτώσεις χρήσης  |   Ανάλυση Περιπτώσεων Χρήσης     |
