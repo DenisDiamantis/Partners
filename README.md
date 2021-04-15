@@ -103,5 +103,4 @@
 
 ![](docs/markdown/uml/requirements/field_model_pic.png)
 
-## Ανάλυση περιπτώσεων χρήσης
 
