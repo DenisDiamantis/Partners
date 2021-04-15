@@ -103,4 +103,20 @@
 
 ![](docs/markdown/uml/requirements/field_model_pic.png)
 
+## Ανάλυση περιπτώσεων χρήσης
 
+### Κλάσεις ανάλυσης
+
+
+![](docs/markdown/uml/requirements/class_diagram.png)
+
+## Διαγράμματα Ροής
+
+### Διάγραμμα Ροής Διαχείρισης Λογαριασμού
+
+
+![](docs/markdown/uml/requirements/sequence_account_management.png)
+
+### Διάγραμμα Ροής Αναζήτησης Ομάδας 
+
+![](docs/markdown/uml/requirements/sequence_team_search.png)
