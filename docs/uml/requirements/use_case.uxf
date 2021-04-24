@@ -175,13 +175,13 @@ halign=left</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>370</x>
-      <y>740</y>
+      <y>750</y>
       <w>180</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;includes&gt;&gt;</panel_attributes>
-    <additional_attributes>160.0;20.0;10.0;30.0</additional_attributes>
+    <additional_attributes>10.0;30.0;160.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -213,12 +213,12 @@ valign=top</panel_attributes>
     <coordinates>
       <x>360</x>
       <y>540</y>
-      <w>280</w>
+      <w>290</w>
       <h>230</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;includes&gt;&gt;</panel_attributes>
-    <additional_attributes>260.0;10.0;10.0;210.0</additional_attributes>
+    <additional_attributes>10.0;210.0;270.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>

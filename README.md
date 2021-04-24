@@ -101,7 +101,7 @@
 
 ## Μοντέλο πεδίου
 
-![](docs/markdown/uml/requirements/field_model_pic.png)
+![](docs/markdown/uml/requirements/field_model.png)
 
 ## Ανάλυση περιπτώσεων χρήσης
 
