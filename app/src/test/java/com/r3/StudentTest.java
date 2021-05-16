@@ -14,6 +14,9 @@ public class StudentTest {
         private String AM = null;
         private String email = null;
         private String password = null;
+        private String message = null;
+        private int id;
+        private String thecourse= null;
         static HashMap<String, HashMap<Integer, ArrayList<Student>>> teams = new HashMap<>();
         HashMap<Integer, ArrayList<Student>> assembled2 = new HashMap<>();
         ArrayList<String> skills = new ArrayList<>();
@@ -31,7 +34,9 @@ public class StudentTest {
         static HashMap<String, Boolean> done = new HashMap<>();
         Student student1 = new Student();
         Student student = new Student("Vassilhs","Spanoylhs","p3180068","s@ueb.gr","otinanai",skills,days);
-
+        static HashMap<Integer, HashMap<String, Request>> inbox = new HashMap<>();
+        static HashMap<String, Request> sender = new HashMap<>();
+        Team team = new Team();
     @Before
     public void setUp() throws Exception {
         mondayhours.add("5:00");
@@ -59,6 +64,7 @@ public class StudentTest {
     //----------------------------------------------------------------------------------------------------------
         //testCreateTeam
         String thecourse = "Tech";
+        String message = "Hi";
         int id = 1111;
         ArrayList<Student> members = new ArrayList<>();
         members.add(student);
@@ -67,7 +73,7 @@ public class StudentTest {
         Team the_team = new Team(thecourse, id, members, founder, requirements);
         assembled2.put(id,members);
         teams.put(thecourse,assembled2);
-
+        student.joinRequest(this.AM,message,id,thecourse);
     }
 
     @Test
@@ -223,6 +229,12 @@ public class StudentTest {
             days.put(day,tuesdayhours);
         }
 
+    }
+    @Test
+    public void joinRequest() {
+        Request request = new Request(student.getAM(),message,1117,thecourse);
+        team.sender.put(AM,request);
+        team.inbox.put(id,team.sender);
     }
 
 }
