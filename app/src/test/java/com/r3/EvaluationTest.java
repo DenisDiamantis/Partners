@@ -14,6 +14,7 @@ public class EvaluationTest {
     static HashMap<String, Double> evaluations = new HashMap<>();
     static HashMap<String, HashMap<String,Boolean>> eval_done = new HashMap<>();
     static HashMap<String, Boolean> done = new HashMap<>();
+    Evaluation evaluation1;
 
     @Before
     public void setUp(){
@@ -22,11 +23,13 @@ public class EvaluationTest {
         this.AM_2 = "p3180266";
         done.put(AM_2, true);
         eval_done.put(AM, done);
+        evaluation1 = new Evaluation(this.AM,this.AM_2);
+
     }
 
     @Test
     public void getEvaluator(){
-        Assert.assertEquals("p3180068", this.AM);
+        Assert.assertEquals("p3180068", evaluation1.getEvaluator());
     }
 
     @Test
@@ -39,7 +42,7 @@ public class EvaluationTest {
 
     @Test
     public void getEvaluatee(){
-        Assert.assertEquals("p3180266", this.AM_2);
+        Assert.assertEquals("p3180266", evaluation1.getEvaluatee());
     }
 
     @Test

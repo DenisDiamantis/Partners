@@ -10,6 +10,7 @@ public class Evaluation {
     static HashMap<String, HashMap<String,Boolean>> eval_done = new HashMap<>();
     static HashMap<String, Boolean> done = new HashMap<>();
 
+
     public Evaluation(String AM, String AM_2){
         setEvaluatee(AM_2);
         setEvaluator(AM);
@@ -30,6 +31,6 @@ public class Evaluation {
         return AM_2;
     }
     public void setEvaluatee(String AM_2){
-        this.AM=AM;
+        this.AM_2=AM_2;
     }
 }

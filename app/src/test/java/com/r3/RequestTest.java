@@ -6,6 +6,9 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 public class RequestTest {
 
@@ -15,6 +18,9 @@ public class RequestTest {
     String thecourse = null;
     Team team = new Team();
     HashMap<String,String> all_messages = new HashMap<>();
+    Request request = new Request();
+    Request request1 = new Request(AM,message,id,thecourse);
+    HashMap<String, Request> requests = new HashMap<>();
 
     @Before
     public void setUp(){
@@ -22,6 +28,8 @@ public class RequestTest {
         this.message="Hi";
         this.id = 1119;
         this.thecourse = "Tech";
+        request1 = new Request(this.AM,this.message,this.id,this.thecourse);
+        request1.getHashMapKey(requests);
     }
 
     @Test
@@ -33,7 +41,7 @@ public class RequestTest {
 
     @Test
     public void getAM(){
-        Assert.assertEquals("p3180068",this.AM);
+        Assert.assertEquals("p3180068",request1.getAM());
     }
 
     @Test
@@ -45,7 +53,7 @@ public class RequestTest {
 
     @Test
     public void getMessage(){
-        Assert.assertEquals("Hi",this.message);
+        Assert.assertEquals("Hi",request1.getMessage());
     }
 
     @Test
@@ -57,7 +65,7 @@ public class RequestTest {
 
     @Test
     public void getID(){
-        Assert.assertEquals(1119,this.id);
+        Assert.assertEquals(1119,request1.getID());
     }
 
     @Test
@@ -69,6 +77,20 @@ public class RequestTest {
 
     @Test
     public void getTheCourse(){
-        Assert.assertEquals("Tech",this.thecourse);
+        Assert.assertEquals("Tech",request1.getTheCourse());
+    }
+
+    @Test
+    public void getHashMapKey() {
+        HashMap<String, Request> b = requests;
+        ArrayList<String> list = new ArrayList<>();
+        Set<Map.Entry<String, Request>> set;
+        set = b.entrySet();
+        Iterator iterator = set.iterator();
+        for (int o = 0; o < set.size(); o++) {
+            Map.Entry f = (Map.Entry) iterator.next();
+            list.add((String)f.getKey());
+        }
+
     }
 }

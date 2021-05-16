@@ -6,13 +6,17 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 public class CourseTest {
 
     int size;
     String name;
     static HashMap<String,Integer> courses = new HashMap<>();
-
+    Course course = new Course();
+    Course course1 = new Course(name,size);
     @Before
     public void setUp(){
         int teammaxsize = 3;
@@ -20,6 +24,10 @@ public class CourseTest {
         this.size = teammaxsize;
         this.name = name;
         courses.put(name,teammaxsize);
+        course1 = new Course(name,teammaxsize);
+        course.getTeamSize();
+        course.getCourseName();
+        course1.getHashMapKey(courses);
     }
 
     @Test
@@ -30,7 +38,7 @@ public class CourseTest {
     }
     @Test
     public void getTeamSize(){
-        Assert.assertEquals(3, this.size);
+        Assert.assertEquals(3, course1.getTeamSize());
     }
     @Test
     public void setCourseName(){
@@ -40,6 +48,22 @@ public class CourseTest {
     }
     @Test
     public void getName(){
-        Assert.assertEquals("Tech", this.name);
+        Assert.assertEquals("Tech", course1.getCourseName());
+    }
+
+    @Test
+    public void getHashMapKey() {
+        HashMap<String, Integer> b = courses;
+        ArrayList<String> list = new ArrayList<>();
+        Set<Map.Entry<String, Integer>> set;
+        set = b.entrySet();
+        Iterator iterator = set.iterator();
+        for (int o = 0; o < set.size(); o++) {
+            Map.Entry f = (Map.Entry) iterator.next();
+            list.add((String)f.getKey());
+        }
+        if(courses.keySet().equals(set)){
+            Assert.assertEquals(java.util.Optional.of(1118),list.get(0));
+        }
     }
 }

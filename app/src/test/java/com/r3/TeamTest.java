@@ -14,7 +14,7 @@ public class TeamTest {
 
     static HashMap<Integer, ArrayList<Student>> assembled = new HashMap<>();
     ArrayList<Student> students = new ArrayList<>();
-
+    Team team = new Team();
     @Before
     public void setUp() throws Exception {
         Account account = new Account();
@@ -52,6 +52,7 @@ public class TeamTest {
         students.add(student);
         int team_id = 1118;
         assembled.put(1118,students);
+        team.getHashMapKey(assembled);
     }
     @Test
     public void getHashMapKey() {

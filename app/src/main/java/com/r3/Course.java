@@ -10,8 +10,8 @@ public class Course {
     static HashMap<String,Integer> courses = new HashMap<>();
 
     public Course(String name,int teammaxsize){
-        this.size = teammaxsize;
-        this.name = name;
+        setTeamSize(teammaxsize);
+        setCourseName(name);
         courses.put(name,teammaxsize);
     }
     public Course(){
@@ -26,7 +26,7 @@ public class Course {
     public void setCourseName(String name){
         this.name = name;
     }
-    public String getName(){
+    public String getCourseName(){
         return name;
     }
 

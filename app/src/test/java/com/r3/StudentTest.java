@@ -9,6 +9,11 @@ import java.util.HashMap;
 
 public class StudentTest {
 
+        private String name = null;
+        private String surname = null;
+        private String AM = null;
+        private String email = null;
+        private String password = null;
         static HashMap<String, HashMap<Integer, ArrayList<Student>>> teams = new HashMap<>();
         HashMap<Integer, ArrayList<Student>> assembled2 = new HashMap<>();
         ArrayList<String> skills = new ArrayList<>();
@@ -24,7 +29,7 @@ public class StudentTest {
         static HashMap<String, Double> evaluations = new HashMap<>();
         static HashMap<String, HashMap<String,Boolean>> eval_done = new HashMap<>();
         static HashMap<String, Boolean> done = new HashMap<>();
-
+        Student student1 = new Student();
         Student student = new Student("Vassilhs","Spanoylhs","p3180068","s@ueb.gr","otinanai",skills,days);
 
     @Before
@@ -62,6 +67,7 @@ public class StudentTest {
         Team the_team = new Team(thecourse, id, members, founder, requirements);
         assembled2.put(id,members);
         teams.put(thecourse,assembled2);
+
     }
 
     @Test
@@ -80,6 +86,17 @@ public class StudentTest {
         temp.add("thrylos");
         temp.add("tsitsifast");
         Assert.assertEquals(temp,student.getSkills());
+    }
+
+    @Test
+    public void getEmail(){Assert.assertEquals("s@ueb.gr",student.getEmail());
+    }
+
+    @Test
+    public void setEmail(){
+        String email = "s@ueb.gr";
+        this.email = email;
+        Assert.assertEquals("s@ueb.gr",this.email);
     }
 
     @Test

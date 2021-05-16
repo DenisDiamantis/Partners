@@ -13,6 +13,7 @@ import java.util.Set;
 public class AccountTest {
 
     static HashMap<String, Student> accounts = new HashMap<>();
+    Account acc;
 
     @Before
     public void setUp() throws Exception {
@@ -47,9 +48,12 @@ public class AccountTest {
         days.put("Saturday", saturdayhours);
 
         days.put("Sunday", sundayhours);
+        Account acc = new Account("Kleiw", "Patatsh", "p3180266", "nikolpatatsi@gmail.com", "klei-w", skills, days);
         Student student = new Student("Kleiw", "Patatsh", "p3180266", "nikolpatatsi@gmail.com", "klei-w", skills, days);
         accounts.put(student.getAM(),student);
+        acc.getHashMapKeyStudent(accounts);
     }
+
     @Test
     public void getHashMapKeyStudent(){
         HashMap<String, Student> b = accounts;
@@ -62,7 +66,7 @@ public class AccountTest {
             list.add((String) f.getKey());
         }
         if(accounts.keySet().equals(set)){
-            Assert.assertEquals("p3180266",list.get(0));
+            Assert.assertEquals("p3180266",acc.getHashMapKeyStudent(accounts));
         }
     }
 }
