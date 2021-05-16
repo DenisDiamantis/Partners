@@ -115,8 +115,8 @@
 ### Διάγραμμα Ροής Διαχείρισης Λογαριασμού
 
 
-![](docs/markdown/uml/requirements/sequence_account_management.png)
+![](docs/markdown/uml/requirements/sequence_account_management_remastered.png)
 
 ### Διάγραμμα Ροής Αναζήτησης Ομάδας 
 
-![](docs/markdown/uml/requirements/sequence_team_search.png)
+![](docs/markdown/uml/requirements/sequence_team_search_remastered.png)
