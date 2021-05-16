@@ -22,17 +22,6 @@ public class Account {
 
     }
 
-    public ArrayList<String> getHashMapKey(HashMap<String, String> b) {
-        ArrayList<String> list = new ArrayList<>();
-        Set<Map.Entry<String, String>> set;
-        set = b.entrySet();
-        Iterator iterator = set.iterator();
-        for (int o = 0; o < set.size(); o++) {
-            Map.Entry f = (Map.Entry) iterator.next();
-            list.add((String) f.getKey());
-        }
-        return list;
-    }
 
     public ArrayList<String> getHashMapKeyStudent(HashMap<String, Student> b) {
         ArrayList<String> list = new ArrayList<>();

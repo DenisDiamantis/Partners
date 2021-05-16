@@ -257,7 +257,7 @@ public class Main {
                                                                         break;
                                                                     } else if (etymhgoria.equals("1")) {
                                                                         ArrayList<Student> newteam = new ArrayList<>();
-                                                                        for (int i = 0; i < team.assembled.size(); i++) {
+                                                                        for (int i = 0; i < team.assembled.get(temp).size(); i++) {
                                                                             newteam.add(team.assembled.get(temp).get(i));
                                                                         }
                                                                         newteam.add(account.accounts.get(team.inbox.get(temp).get(gathered.get(h)).getAM()));
