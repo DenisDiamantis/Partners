@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class EvaluationTest {
@@ -14,7 +13,7 @@ public class EvaluationTest {
     static HashMap<String, Double> evaluations = new HashMap<>();
     static HashMap<String, HashMap<String,Boolean>> eval_done = new HashMap<>();
     static HashMap<String, Boolean> done = new HashMap<>();
-    Evaluation evaluation1;
+    EvaluationDAO evaluationDAO1;
 
     @Before
     public void setUp(){
@@ -23,13 +22,13 @@ public class EvaluationTest {
         this.AM_2 = "p3180266";
         done.put(AM_2, true);
         eval_done.put(AM, done);
-        evaluation1 = new Evaluation(this.AM,this.AM_2);
+        evaluationDAO1 = new EvaluationDAO(this.AM,this.AM_2);
 
     }
 
     @Test
     public void getEvaluator(){
-        Assert.assertEquals("p3180068", evaluation1.getEvaluator());
+        Assert.assertEquals("p3180068", evaluationDAO1.getEvaluator());
     }
 
     @Test
@@ -42,7 +41,7 @@ public class EvaluationTest {
 
     @Test
     public void getEvaluatee(){
-        Assert.assertEquals("p3180266", evaluation1.getEvaluatee());
+        Assert.assertEquals("p3180266", evaluationDAO1.getEvaluatee());
     }
 
     @Test

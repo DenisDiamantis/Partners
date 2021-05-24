@@ -17,8 +17,8 @@ public class StudentTest {
         private String message = null;
         private int id;
         private String thecourse= null;
-        static HashMap<String, HashMap<Integer, ArrayList<Student>>> teams = new HashMap<>();
-        HashMap<Integer, ArrayList<Student>> assembled2 = new HashMap<>();
+        static HashMap<String, HashMap<Integer, ArrayList<StudentDAO>>> teams = new HashMap<>();
+        HashMap<Integer, ArrayList<StudentDAO>> assembled2 = new HashMap<>();
         ArrayList<String> skills = new ArrayList<>();
         ArrayList<String> mondayhours = new ArrayList<>();
         ArrayList<String> tuesdayhours = new ArrayList<>();
@@ -28,15 +28,15 @@ public class StudentTest {
         ArrayList<String> saturdayhours = new ArrayList<>();
         ArrayList<String> sundayhours = new ArrayList<>();
         HashMap<String, ArrayList<String>> days = new HashMap<>();
-        static HashMap<String, Student> accounts = new HashMap<>();
+        static HashMap<String, StudentDAO> accounts = new HashMap<>();
         static HashMap<String, Double> evaluations = new HashMap<>();
         static HashMap<String, HashMap<String,Boolean>> eval_done = new HashMap<>();
         static HashMap<String, Boolean> done = new HashMap<>();
-        Student student1 = new Student();
-        Student student = new Student("Vassilhs","Spanoylhs","p3180068","s@ueb.gr","otinanai",skills,days);
-        static HashMap<Integer, HashMap<String, Request>> inbox = new HashMap<>();
-        static HashMap<String, Request> sender = new HashMap<>();
-        Team team = new Team();
+        StudentDAO student1 = new StudentDAO();
+        StudentDAO studentDAO = new StudentDAO("Vassilhs","Spanoylhs","p3180068","s@ueb.gr","otinanai",skills,days);
+        static HashMap<Integer, HashMap<String, RequestDAO>> inbox = new HashMap<>();
+        static HashMap<String, RequestDAO> sender = new HashMap<>();
+        TeamDAO teamDAO = new TeamDAO();
     @Before
     public void setUp() throws Exception {
         mondayhours.add("5:00");
@@ -60,30 +60,30 @@ public class StudentTest {
         skills.add("thrylos");
         skills.add("tsitsifast");
         //Account acc = new Account(student.getName(),student.getSurname(),student.getAM(),student.getEmail(),student.getPassword(),student.getSkills(),student.getTimeline());
-        accounts.put(student.getAM(),student);
+        accounts.put(studentDAO.getAM(), studentDAO);
     //----------------------------------------------------------------------------------------------------------
         //testCreateTeam
         String thecourse = "Tech";
         String message = "Hi";
         int id = 1111;
-        ArrayList<Student> members = new ArrayList<>();
-        members.add(student);
-        String founder = student.getAM();
+        ArrayList<StudentDAO> members = new ArrayList<>();
+        members.add(studentDAO);
+        String founder = studentDAO.getAM();
         String requirements = "No requirements";
-        Team the_team = new Team(thecourse, id, members, founder, requirements);
+        TeamDAO the_teamDAO = new TeamDAO(thecourse, id, members, founder, requirements);
         assembled2.put(id,members);
         teams.put(thecourse,assembled2);
-        student.joinRequest(this.AM,message,id,thecourse);
+        studentDAO.joinRequest(this.AM,message,id,thecourse);
     }
 
     @Test
     public void getName(){
-        Assert.assertEquals("Vassilhs",student.getName());
+        Assert.assertEquals("Vassilhs", studentDAO.getName());
 
     }
     @Test
     public void getPassword(){
-        Assert.assertEquals("otinanai",student.getPassword());
+        Assert.assertEquals("otinanai", studentDAO.getPassword());
     }
     @Test
     public void getSkills(){
@@ -91,11 +91,11 @@ public class StudentTest {
         temp.add("watchF1");
         temp.add("thrylos");
         temp.add("tsitsifast");
-        Assert.assertEquals(temp,student.getSkills());
+        Assert.assertEquals(temp, studentDAO.getSkills());
     }
 
     @Test
-    public void getEmail(){Assert.assertEquals("s@ueb.gr",student.getEmail());
+    public void getEmail(){Assert.assertEquals("s@ueb.gr", studentDAO.getEmail());
     }
 
     @Test
@@ -107,9 +107,9 @@ public class StudentTest {
 
     @Test
     public void testcreateAccount(){
-        Student newstudent = new Student("Platonas","Karageorgis","p3180068","s@ueb.gr","otinanai",skills,days);
+        StudentDAO newstudent = new StudentDAO("Platonas","Karageorgis","p3180068","s@ueb.gr","otinanai",skills,days);
         boolean temp;
-        if(newstudent.getAM().equals(accounts.get(student.getAM()).getAM())){
+        if(newstudent.getAM().equals(accounts.get(studentDAO.getAM()).getAM())){
             temp= false;
         }else{
             temp = true;
@@ -123,28 +123,28 @@ public class StudentTest {
 
     @Test
     public void testcreateTeam(){
-        Student newstudent = new Student("Platonas","Karageorgis","p3180068","s@ueb.gr","otinanai",skills,days);
+        StudentDAO newstudent = new StudentDAO("Platonas","Karageorgis","p3180068","s@ueb.gr","otinanai",skills,days);
         String thecourse = "Tech";
         int id = 1113;
-        ArrayList<Student> members = new ArrayList<>();
-        members.add(student);
-        String founder = student.getAM();
+        ArrayList<StudentDAO> members = new ArrayList<>();
+        members.add(studentDAO);
+        String founder = studentDAO.getAM();
         String requirements = "No requirements";
         boolean succeed= true;// an thelw na petyxei to test bazw true
         if(succeed){
-            Team the_team_2 = new Team(thecourse, id, members, founder, requirements);
+            TeamDAO the_team_DAO_2 = new TeamDAO(thecourse, id, members, founder, requirements);
 
             assembled2.put(id,members);
             teams.put(thecourse,assembled2);
         }else {//alliws o foithths yparxei hdh kai petaw exception
-            Assert.assertFalse(teams.get(thecourse).get(1111).contains(student));
+            Assert.assertFalse(teams.get(thecourse).get(1111).contains(studentDAO));
         }
 
 
     }
     @Test
     public void testLogin(){
-        Student newstudent = new Student("Platonas","Karageorgis","p3180068","s@ueb.gr","otinanai",skills,days);
+        StudentDAO newstudent = new StudentDAO("Platonas","Karageorgis","p3180068","s@ueb.gr","otinanai",skills,days);
         String input = "otinanai";
         boolean test_right = true;
         if(test_right){
@@ -156,9 +156,9 @@ public class StudentTest {
 
     @Test
     public void testEvaluation(){
-        Student newstudent = new Student("Platonas","Karageorgis","p3180068","s@aueb.gr","otinanai",skills,days);
-        Student newstudent2 = new Student("Georgios","Printezhs","p3190068","f@aueb.gr","otinanaiepishs",skills,days);
-        ArrayList<Student> members = new ArrayList<>();
+        StudentDAO newstudent = new StudentDAO("Platonas","Karageorgis","p3180068","s@aueb.gr","otinanai",skills,days);
+        StudentDAO newstudent2 = new StudentDAO("Georgios","Printezhs","p3190068","f@aueb.gr","otinanaiepishs",skills,days);
+        ArrayList<StudentDAO> members = new ArrayList<>();
         members.add(newstudent);
         members.add(newstudent2);
         String thecourse = "Tech";
@@ -189,27 +189,27 @@ public class StudentTest {
         //for the name
         String newname = "Vasilhs";
         if(newname!=null){
-            student.setName("Vasilhs");
+            studentDAO.setName("Vasilhs");
         }
-        Assert.assertEquals("Vasilhs",student.getName());
+        Assert.assertEquals("Vasilhs", studentDAO.getName());
 
         //for the surname
         String newsurname = "7";
         if(newsurname!=null){
-            student.setSurname("7");
+            studentDAO.setSurname("7");
         }
-        Assert.assertEquals("7",student.getSurname());
+        Assert.assertEquals("7", studentDAO.getSurname());
 
         //for the password
         String oldpassword = "otinanai";
         String newpassword1 = "epishsotinanai";
         String newpassword2 = "epishsotinanai";
-        if(oldpassword.equals(student.getPassword())){
+        if(oldpassword.equals(studentDAO.getPassword())){
             if (newpassword1.equals(newpassword2)) {
-                student.setPassword(newpassword1);
-                Assert.assertEquals("epishsotinanai",student.getPassword());
+                studentDAO.setPassword(newpassword1);
+                Assert.assertEquals("epishsotinanai", studentDAO.getPassword());
             }else {
-                Assert.assertEquals("otinanai", student.getPassword());
+                Assert.assertEquals("otinanai", studentDAO.getPassword());
             }
 
         }
@@ -217,9 +217,9 @@ public class StudentTest {
         String newskill = "eating";
         if(!skills.contains(newskill)){
             skills.add("eating");
-            Assert.assertTrue(student.getSkills().contains("eating"));
+            Assert.assertTrue(studentDAO.getSkills().contains("eating"));
         }else{
-            Assert.assertTrue(student.getSkills().contains("eating"));
+            Assert.assertTrue(studentDAO.getSkills().contains("eating"));
         }
         //for the timeline
         String day = "Tuesday";
@@ -232,9 +232,9 @@ public class StudentTest {
     }
     @Test
     public void joinRequest() {
-        Request request = new Request(student.getAM(),message,1117,thecourse);
-        team.sender.put(AM,request);
-        team.inbox.put(id,team.sender);
+        RequestDAO requestDAO = new RequestDAO(studentDAO.getAM(),message,1117,thecourse);
+        teamDAO.sender.put(AM, requestDAO);
+        teamDAO.inbox.put(id, teamDAO.sender);
     }
 
 }

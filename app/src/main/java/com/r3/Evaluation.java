@@ -1,36 +1,20 @@
 package com.r3;
 
-import java.util.HashMap;
-
 public class Evaluation {
 
-    String AM;
-    String AM_2;
-    static HashMap<String, Double> evaluations = new HashMap<>();
-    static HashMap<String, HashMap<String,Boolean>> eval_done = new HashMap<>();
-    static HashMap<String, Boolean> done = new HashMap<>();
+    String AM_evaluator = null;
+    String AM_evaluatee = null;
 
-
-    public Evaluation(String AM, String AM_2){
-        setEvaluatee(AM_2);
-        setEvaluator(AM);
-        done.put(AM_2, true);
-        eval_done.put(AM, done);
-    }
-    public Evaluation(){
-
-    }
-    public String getEvaluator(){
-        return AM;
-    }
-    public void setEvaluator(String AM){
-        this.AM=AM;
+    public Evaluation(String AM_evaluator, String AM_evaluatee){
+        this.AM_evaluatee = AM_evaluatee;
+        this.AM_evaluator = AM_evaluator;
     }
 
-    public String getEvaluatee(){
-        return AM_2;
+    public String getAM_evaluator() {
+        return AM_evaluator;
     }
-    public void setEvaluatee(String AM_2){
-        this.AM_2=AM_2;
+
+    public String getAM_evaluatee() {
+        return AM_evaluatee;
     }
 }

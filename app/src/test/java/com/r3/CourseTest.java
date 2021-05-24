@@ -15,8 +15,8 @@ public class CourseTest {
     int size;
     String name;
     static HashMap<String,Integer> courses = new HashMap<>();
-    Course course = new Course();
-    Course course1 = new Course(name,size);
+    CourseDAO courseDAO = new CourseDAO();
+    CourseDAO courseDAO1 = new CourseDAO(name,size);
     @Before
     public void setUp(){
         int teammaxsize = 3;
@@ -24,10 +24,10 @@ public class CourseTest {
         this.size = teammaxsize;
         this.name = name;
         courses.put(name,teammaxsize);
-        course1 = new Course(name,teammaxsize);
-        course.getTeamSize();
-        course.getCourseName();
-        course1.getHashMapKey(courses);
+        courseDAO1 = new CourseDAO(name,teammaxsize);
+        courseDAO.getTeamSize();
+        courseDAO.getCourseName();
+        courseDAO1.getHashMapKey(courses);
     }
 
     @Test
@@ -38,7 +38,7 @@ public class CourseTest {
     }
     @Test
     public void getTeamSize(){
-        Assert.assertEquals(3, course1.getTeamSize());
+        Assert.assertEquals(3, courseDAO1.getTeamSize());
     }
     @Test
     public void setCourseName(){
@@ -48,7 +48,7 @@ public class CourseTest {
     }
     @Test
     public void getName(){
-        Assert.assertEquals("Tech", course1.getCourseName());
+        Assert.assertEquals("Tech", courseDAO1.getCourseName());
     }
 
     @Test

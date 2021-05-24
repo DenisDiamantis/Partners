@@ -12,12 +12,12 @@ import java.util.Set;
 
 public class AccountTest {
 
-    static HashMap<String, Student> accounts = new HashMap<>();
-    Account acc;
+    static HashMap<String, StudentDAO> accounts = new HashMap<>();
+    AccountDAO acc;
 
     @Before
     public void setUp() throws Exception {
-        Account account = new Account();
+        AccountDAO accountDAO = new AccountDAO();
         HashMap<String, ArrayList<String>> days = new HashMap<>();
         ArrayList<String> skills = new ArrayList<>();
         ArrayList<String> mondayhours = new ArrayList<>();
@@ -48,17 +48,17 @@ public class AccountTest {
         days.put("Saturday", saturdayhours);
 
         days.put("Sunday", sundayhours);
-        Account acc = new Account("Kleiw", "Patatsh", "p3180266", "nikolpatatsi@gmail.com", "klei-w", skills, days);
-        Student student = new Student("Kleiw", "Patatsh", "p3180266", "nikolpatatsi@gmail.com", "klei-w", skills, days);
-        accounts.put(student.getAM(),student);
+        AccountDAO acc = new AccountDAO("Kleiw", "Patatsh", "p3180266", "nikolpatatsi@gmail.com", "klei-w", skills, days);
+        StudentDAO studentDAO = new StudentDAO("Kleiw", "Patatsh", "p3180266", "nikolpatatsi@gmail.com", "klei-w", skills, days);
+        accounts.put(studentDAO.getAM(), studentDAO);
         acc.getHashMapKeyStudent(accounts);
     }
 
     @Test
     public void getHashMapKeyStudent(){
-        HashMap<String, Student> b = accounts;
+        HashMap<String, StudentDAO> b = accounts;
         ArrayList<String> list = new ArrayList<>();
-        Set<Map.Entry<String, Student>> set;
+        Set<Map.Entry<String, StudentDAO>> set;
         set = b.entrySet();
         Iterator iterator = set.iterator();
         for (int o = 0; o < set.size(); o++) {

@@ -332,7 +332,7 @@ reply2()</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-team.requirements()</panel_attributes>
+teamDAO.requirements()</panel_attributes>
     <additional_attributes>10.0;20.0;350.0;20.0</additional_attributes>
   </element>
   <element>
@@ -584,7 +584,7 @@ teamID()</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-request(id)</panel_attributes>
+requestDAO(id)</panel_attributes>
     <additional_attributes>10.0;20.0;500.0;20.0</additional_attributes>
   </element>
   <element>
@@ -641,7 +641,7 @@ reply3()</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-team.requirements()</panel_attributes>
+teamDAO.requirements()</panel_attributes>
     <additional_attributes>10.0;20.0;350.0;20.0</additional_attributes>
   </element>
   <element>

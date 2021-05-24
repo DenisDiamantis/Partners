@@ -12,12 +12,12 @@ import java.util.Set;
 
 public class TeamTest {
 
-    static HashMap<Integer, ArrayList<Student>> assembled = new HashMap<>();
-    ArrayList<Student> students = new ArrayList<>();
-    Team team = new Team();
+    static HashMap<Integer, ArrayList<StudentDAO>> assembled = new HashMap<>();
+    ArrayList<StudentDAO> students = new ArrayList<>();
+    TeamDAO teamDAO = new TeamDAO();
     @Before
     public void setUp() throws Exception {
-        Account account = new Account();
+        AccountDAO accountDAO = new AccountDAO();
         HashMap<String, ArrayList<String>> days = new HashMap<>();
         ArrayList<String> skills = new ArrayList<>();
         ArrayList<String> mondayhours = new ArrayList<>();
@@ -48,17 +48,17 @@ public class TeamTest {
         days.put("Saturday", saturdayhours);
 
         days.put("Sunday", sundayhours);
-        Student student = new Student("Kleiw", "Patatsh", "p3180266", "nikolpatatsi@gmail.com", "klei-w", skills, days);
-        students.add(student);
+        StudentDAO studentDAO = new StudentDAO("Kleiw", "Patatsh", "p3180266", "nikolpatatsi@gmail.com", "klei-w", skills, days);
+        students.add(studentDAO);
         int team_id = 1118;
         assembled.put(1118,students);
-        team.getHashMapKey(assembled);
+        teamDAO.getHashMapKey(assembled);
     }
     @Test
     public void getHashMapKey() {
-        HashMap<Integer, ArrayList<Student>> b = assembled;
+        HashMap<Integer, ArrayList<StudentDAO>> b = assembled;
         ArrayList<Integer> list = new ArrayList<>();
-        Set<Map.Entry<Integer, ArrayList<Student>>> set;
+        Set<Map.Entry<Integer, ArrayList<StudentDAO>>> set;
         set = b.entrySet();
         Iterator iterator = set.iterator();
         for (int o = 0; o < set.size(); o++) {

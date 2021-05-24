@@ -1,39 +1,30 @@
 package com.r3;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-
 public class Account {
 
-    static HashMap<String, Student> accounts = new HashMap<>();
-    static HashMap<String, ArrayList<String>> skillsmap = new HashMap<>();
-    static HashMap<String, HashMap<String, ArrayList<String>>> timelinemap = new HashMap<>();
+    String AM = null;
+    String password = null;
+    String email = null;
 
-    public Account(String name, String surname, String AM, String email, String password,ArrayList<String> skills, HashMap<String, ArrayList<String>> timeline){
-        skillsmap.put(AM, skills);
-        timelinemap.put(AM, timeline);
-        Student student = new Student(name, surname, AM, email, password, skills, timeline);
-        accounts.put(AM,student);
-    }
-    public Account(){
-
+    public Account(String AM,String password, String email){
+        this.AM = AM;
+        this.password = password;
+        this.email = email;
     }
 
-
-    public ArrayList<String> getHashMapKeyStudent(HashMap<String, Student> b) {
-        ArrayList<String> list = new ArrayList<>();
-        Set<Map.Entry<String, Student>> set;
-        set = b.entrySet();
-        Iterator iterator = set.iterator();
-        for (int o = 0; o < set.size(); o++) {
-            Map.Entry f = (Map.Entry) iterator.next();
-            list.add((String) f.getKey());
-        }
-        return list;
+    public String getAM() {
+        return AM;
     }
 
+    public String getPassword() {
+        return password;
+    }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
