@@ -4,27 +4,22 @@ import java.util.ArrayList;
 
 public class Team {
 
-    Project project = null;
-    int id;
+    Project project;
     Student founder = new Student();
     String requirements = null;
     ArrayList<Student> members;
-
-    public Team(Project project, int id, Student founder, ArrayList<Student> members, String requirements){
+    ArrayList<Request> requests;
+    public Team(Project project,Student founder, ArrayList<Student> members, String requirements){
         this.project = project;
         this.requirements = requirements;
         this.members = members;
         this.founder = founder;
-        this.id = id;
     }
 
     public Project getProject() {
         return project;
     }
 
-    public int getId() {
-        return id;
-    }
 
     public Student getFounder() {
         return founder;
@@ -36,5 +31,32 @@ public class Team {
 
     public ArrayList<Student> getMembers() {
         return members;
+    }
+
+    public void addRequests(Request request){
+        requests.add(request);
+    }
+    public void acceptRequest(Request request,Student student){
+        if(student.equals(founder)) {
+            if (checkTeamSize()) {
+                members.add(request.getStudent());
+            }
+        }
+
+    }
+    public void declineRequest(Request request, Student student){
+        if(student.equals(founder)) {
+            request.setStatus(false);
+        }
+    }
+    public boolean checkTeamSize(){
+        if(members.size()<project.getMaxNumber()) {
+            return true;
+        }
+        for(int i = 0; i< requests.size();i++){
+            requests.get(i).setStatus(false);
+        }
+        requests.removeAll(requests);
+        return false;
     }
 }

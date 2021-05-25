@@ -1,5 +1,9 @@
 package com.r3;
 
+import java.util.AbstractSequentialList;
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class Student {
 
     String name = null;
@@ -9,8 +13,11 @@ public class Student {
     String email = null;
     String skills = null;
     String timeline = null;
+    ArrayList<Team> teams;
+    ArrayList<Request> requests;
+    ArrayList<Evaluation> evaluations;
 
-    public Student(){
+    public Student() {
 
     }
 
@@ -62,5 +69,65 @@ public class Student {
 
     public void setTimeline(String timeline) {
         this.timeline = timeline;
+    }
+
+    public void addTeams(Team team) {
+        teams.add(team);
+    }
+
+    public void Evaluate(int evaluation, Student evaluatee) {
+        boolean flag = false;
+        for(int j=0;j<teams.size();j++){
+           if(teams.get(j).getMembers().contains(this) && teams.get(j).getMembers().contains(evaluatee)){
+               flag = true;
+           }
+        }
+        if(flag) {
+            for(int k=0;k< evaluations.size();k++){
+                if(evaluations.get(k).getEvaluatee().equals(evaluatee)){
+                    return;
+                }
+            }
+            Evaluation eval = new Evaluation(this, evaluatee, evaluation);
+            evaluations.add(eval);
+        }
+    }
+
+    public void sendRequest(Team appl_team, String message) {
+        Request req = new Request(this, appl_team, message);
+        requests.add(req);
+    }
+
+    public void createTeam(Project project, String requirements) {
+        ArrayList<Student> members = new ArrayList<>();
+        members.add(this);
+        Team team = new Team(project, this, members, requirements);
+        teams.add(team);
+    }
+
+    public void createAccount() {
+        Account account = new Account(this.AM, this.password, this.email);
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void updateRequests() {
+        Iterator<Request> iter = requests.iterator();
+        while (iter.hasNext()) {
+            Request temp = iter.next();
+            if (!temp.getStatus()) {
+                iter.remove();
+            }
+        }
+    }
+
+    public ArrayList<Team> getTeams() {
+        return teams;
     }
 }

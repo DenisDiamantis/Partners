@@ -2,19 +2,32 @@ package com.r3;
 
 public class Evaluation {
 
-    String AM_evaluator = null;
-    String AM_evaluatee = null;
+    Student evaluator;
+    Student evaluatee;
+    int grade;
 
-    public Evaluation(String AM_evaluator, String AM_evaluatee){
-        this.AM_evaluatee = AM_evaluatee;
-        this.AM_evaluator = AM_evaluator;
+    /*public Evaluation(){
+
+    }*/
+    public Evaluation(Student evaluator, Student evaluatee,int grade){
+        this.evaluatee = evaluatee;
+        this.evaluator = evaluator;
+        this.grade = grade;
     }
 
-    public String getAM_evaluator() {
-        return AM_evaluator;
+    public Student getEvaluator() {
+        return evaluator;
     }
 
-    public String getAM_evaluatee() {
-        return AM_evaluatee;
+    public Student getEvaluatee() {
+        return evaluatee;
+    }
+
+    public int getGrade(){
+        return grade;
+    }
+
+    public void setGrade(int grade){
+        this.grade = grade;
     }
 }

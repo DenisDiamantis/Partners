@@ -2,31 +2,34 @@ package com.r3;
 
 public class Request {
 
-    String AM = null;
+    Student sender;
+    Team application_team;
     int id;
     String message = null;
-    String course = null;
-
-    public Request(String AM, int id, String message, String course){
-        this.AM= AM;
-        this.id = id;
+    boolean status = true;
+    public Request(Student student, Team team, String message){
+        this.sender = student;
+        this.application_team = team;
         this.message = message;
-        this.course = course;
     }
 
-    public String getAM() {
-        return AM;
+    public Student getStudent() {
+        return sender;
     }
 
-    public int getId() {
-        return id;
+    public Team getApplicationTeam() {
+        return application_team;
     }
 
     public String getMessage() {
         return message;
     }
 
-    public String getCourse() {
-        return course;
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    public boolean getStatus() {
+        return status;
     }
 }
