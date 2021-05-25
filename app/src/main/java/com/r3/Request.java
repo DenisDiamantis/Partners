@@ -6,14 +6,15 @@ public class Request {
     Team application_team;
     int id;
     String message = null;
-    boolean status = true;
-    public Request(Student student, Team team, String message){
-        this.sender = student;
+    static boolean status = true;
+
+    public Request(Student sender, Team team, String message){
+        this.sender = sender;
         this.application_team = team;
         this.message = message;
     }
 
-    public Student getStudent() {
+    public Student getSender() {
         return sender;
     }
 

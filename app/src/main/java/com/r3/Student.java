@@ -2,6 +2,7 @@ package com.r3;
 
 import java.util.AbstractSequentialList;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 public class Student {
@@ -11,17 +12,18 @@ public class Student {
     String AM = null;
     String password = null;
     String email = null;
-    String skills = null;
-    String timeline = null;
-    ArrayList<Team> teams;
-    ArrayList<Request> requests;
-    ArrayList<Evaluation> evaluations;
+    ArrayList<String> skills = null;
+    HashMap<String,ArrayList<String>> timeline;
+    ArrayList<Team> teams = new ArrayList<>();
+    ArrayList<Request> requests = new ArrayList<>();
+    ArrayList<Evaluation> evaluations = new ArrayList<>();
+
 
     public Student() {
 
     }
 
-    public Student(String name, String surname, String AM, String password, String email, String skills, String timeline) {
+    public Student(String name, String surname, String AM, String password, String email, ArrayList<String> skills, HashMap<String,ArrayList<String>> timeline) {
         this.name = name;
         this.surname = surname;
         this.AM = AM;
@@ -51,11 +53,11 @@ public class Student {
         return email;
     }
 
-    public String getSkills() {
+    public ArrayList<String> getSkills() {
         return skills;
     }
 
-    public String getTimeline() {
+    public HashMap<String, ArrayList<String>> getTimeline() {
         return timeline;
     }
 
@@ -63,11 +65,11 @@ public class Student {
         this.password = password;
     }
 
-    public void setSkills(String skills) {
+    public void setSkills(ArrayList<String> skills) {
         this.skills = skills;
     }
 
-    public void setTimeline(String timeline) {
+    public void setTimeline(HashMap<String, ArrayList<String>> timeline) {
         this.timeline = timeline;
     }
 
@@ -76,6 +78,7 @@ public class Student {
     }
 
     public void Evaluate(int evaluation, Student evaluatee) {
+
         boolean flag = false;
         for(int j=0;j<teams.size();j++){
            if(teams.get(j).getMembers().contains(this) && teams.get(j).getMembers().contains(evaluatee)){
@@ -93,16 +96,18 @@ public class Student {
         }
     }
 
-    public void sendRequest(Team appl_team, String message) {
+    public Request sendRequest(Team appl_team, String message) {
         Request req = new Request(this, appl_team, message);
         requests.add(req);
+        return req;
     }
 
-    public void createTeam(Project project, String requirements) {
+    public Team createTeam(Project project, String requirements) {
         ArrayList<Student> members = new ArrayList<>();
         members.add(this);
         Team team = new Team(project, this, members, requirements);
         teams.add(team);
+        return team;
     }
 
     public void createAccount() {

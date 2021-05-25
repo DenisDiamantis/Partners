@@ -13,7 +13,4 @@ public class Course {
         return title;
     }
 
-    public void addProjects(Project project){
-        projects.add(project);
-    }
 }

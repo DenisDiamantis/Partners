@@ -6,9 +6,7 @@ public class Evaluation {
     Student evaluatee;
     int grade;
 
-    /*public Evaluation(){
 
-    }*/
     public Evaluation(Student evaluator, Student evaluatee,int grade){
         this.evaluatee = evaluatee;
         this.evaluator = evaluator;

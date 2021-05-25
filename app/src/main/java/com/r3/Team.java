@@ -8,7 +8,7 @@ public class Team {
     Student founder = new Student();
     String requirements = null;
     ArrayList<Student> members;
-    ArrayList<Request> requests;
+    ArrayList<Request> requests = new ArrayList<>();
     public Team(Project project,Student founder, ArrayList<Student> members, String requirements){
         this.project = project;
         this.requirements = requirements;
@@ -36,10 +36,11 @@ public class Team {
     public void addRequests(Request request){
         requests.add(request);
     }
+
     public void acceptRequest(Request request,Student student){
         if(student.equals(founder)) {
             if (checkTeamSize()) {
-                members.add(request.getStudent());
+                members.add(request.getSender());
             }
         }
 
