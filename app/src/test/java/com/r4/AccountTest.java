@@ -1,12 +1,12 @@
-package com.r3;
+package com.r4;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 public class AccountTest {
 
-    Account account = new Account("p3180068","cr7forthewin","cr7@gmail.com");
+    Student student = new Student("Cristiano","Ronaldo","p3180068","cr7forthewin","cr7@gmail.com",null,null);
+    Account account = new Account(student);
 
     @Test
     public void getEmail(){

@@ -1,4 +1,4 @@
-package com.r3;
+package com.r4;
 
 public class Account {
 
@@ -6,10 +6,10 @@ public class Account {
     String password = null;
     String email = null;
 
-    public Account(String AM,String password, String email){
-        this.AM = AM;
-        this.password = password;
-        this.email = email;
+    public Account(Student student){
+        this.AM = student.getAM();
+        this.password = student.getPassword();
+        this.email = student.getEmail();
     }
 
     public String getAM() {

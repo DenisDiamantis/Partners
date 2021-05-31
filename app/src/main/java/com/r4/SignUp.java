@@ -1,14 +1,14 @@
-package com.r3;
+package com.r4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class SearchTeam extends AppCompatActivity {
+public class SignUp extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_team);
+        setContentView(R.layout.activity_sign_up);
     }
 }

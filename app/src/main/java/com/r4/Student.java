@@ -1,6 +1,5 @@
-package com.r3;
+package com.r4;
 
-import java.util.AbstractSequentialList;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -12,8 +11,8 @@ public class Student {
     String AM = null;
     String password = null;
     String email = null;
-    ArrayList<String> skills = null;
-    HashMap<String,ArrayList<String>> timeline;
+    String skills = null;
+    String timeline;
     ArrayList<Team> teams = new ArrayList<>();
     ArrayList<Request> requests = new ArrayList<>();
     ArrayList<Evaluation> evaluations = new ArrayList<>();
@@ -23,7 +22,7 @@ public class Student {
 
     }
 
-    public Student(String name, String surname, String AM, String password, String email, ArrayList<String> skills, HashMap<String,ArrayList<String>> timeline) {
+    public Student(String name, String surname, String AM, String password, String email, String skills, String timeline) {
         this.name = name;
         this.surname = surname;
         this.AM = AM;
@@ -53,11 +52,11 @@ public class Student {
         return email;
     }
 
-    public ArrayList<String> getSkills() {
+    public String getSkills() {
         return skills;
     }
 
-    public HashMap<String, ArrayList<String>> getTimeline() {
+    public String getTimeline() {
         return timeline;
     }
 
@@ -65,11 +64,11 @@ public class Student {
         this.password = password;
     }
 
-    public void setSkills(ArrayList<String> skills) {
+    public void setSkills(String skills) {
         this.skills = skills;
     }
 
-    public void setTimeline(HashMap<String, ArrayList<String>> timeline) {
+    public void setTimeline(String timeline) {
         this.timeline = timeline;
     }
 
@@ -111,7 +110,7 @@ public class Student {
     }
 
     public void createAccount() {
-        Account account = new Account(this.AM, this.password, this.email);
+        Account account = new Account(this);
     }
 
     public void setName(String name) {
