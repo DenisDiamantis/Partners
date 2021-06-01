@@ -35,4 +35,12 @@
     <string name="hintTime">Days followed by Hours</string>
     <string name="mustFill">Fields with * must be filled</string>
     <string name="create_account">CREATE ACCOUNT</string>
+    <string name="Student_Name">*Name :</string>
+    <string name="Student_Surname">*Surname :</string>
+    <string name="Example_Surname">e.g. Zafeiris</string>
+    <string name="Example_Name">e.g. Vasilis</string>
+    <string name="create_my_team">CREATE MY TEAM</string>
+    <string name="create_a_new_team">CREATE A NEW TEAM</string>
+    <string name="requirements">Requirements :</string>
+    <string name="Example_Requirements">Courses passed, GPA etc</string>
 </resources>

@@ -14,9 +14,9 @@
         android:text="@string/search_team"
         android:textSize="16sp"
         app:backgroundTint="#931515"
-        app:layout_constraintEnd_toEndOf="@+id/Enter_Course_Hint"
-        app:layout_constraintStart_toStartOf="@+id/Enter_Course_Hint"
-        app:layout_constraintTop_toBottomOf="@+id/Enter_Course_Hint" />
+        app:layout_constraintEnd_toEndOf="@+id/Enter_Course"
+        app:layout_constraintStart_toStartOf="@+id/Enter_Course"
+        app:layout_constraintTop_toBottomOf="@+id/Enter_Course" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -26,7 +26,7 @@
         app:layout_constraintGuide_begin="89dp" />
 
     <EditText
-        android:id="@+id/Enter_Course_Hint"
+        android:id="@+id/Enter_Course"
         android:layout_width="210dp"
         android:layout_height="50dp"
         android:ems="10"

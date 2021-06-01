@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.dao.AccountDAO;
 import com.dao.Initializer;
@@ -31,8 +32,10 @@ public class LoginScreen extends AppCompatActivity {
                 AccountDAO account = initializer.getAccountDAO();
                 String AM = AMText.getText().toString();
                 String password = PasswordText.getText().toString();
-                if(AM!=null && password!=null && account.loginCheck(AM,password)){
+                if(account.loginCheck(AM,password)){
                     showMenu();
+                }else{
+                    Toast.makeText(getApplicationContext(),"Invalid credentials, try again...", Toast.LENGTH_SHORT).show();
                 }
             }
         });
