@@ -40,11 +40,51 @@ public class SignUp extends AppCompatActivity {
                 String input_email = email.getText().toString();
                 String input_name = name.getText().toString();
                 String input_surname = name.getText().toString();
-                if(account.checkAMExistance(input_AM) && account.checkAMFormat(input_AM) && account.checkName(input_name) && account.checkSurname(input_surname) && account.checkEmailExistance(input_email) && account.checkEmailFormat(input_email) && account.checkPasswordValidity(input_password1) && account.checkPasswordEquality(input_password1, input_password2)){
-                    showMenu();
+                int conditions = 0;
+                if(account.checkAMExistance(input_AM)){
+                    conditions++;
                 }else{
-                    Toast.makeText(getApplicationContext(),"Please fit all the criteria in order to proceed...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"The AM you entered already exists...", Toast.LENGTH_SHORT).show();
                 }
+                if(account.checkAMFormat(input_AM)){
+                    conditions++;
+                }else{
+                    Toast.makeText(getApplicationContext(),"Please check the AM...", Toast.LENGTH_SHORT).show();
+                }
+                if(account.checkName(input_name)){
+                    conditions++;
+                }else{
+                    Toast.makeText(getApplicationContext(),"Name can not be null...", Toast.LENGTH_SHORT).show();
+                }
+                if(account.checkSurname(input_surname)){
+                    conditions++;
+                }else{
+                    Toast.makeText(getApplicationContext(),"Surname can not be null...", Toast.LENGTH_SHORT).show();
+                }
+                if(account.checkEmailExistance(input_email)){
+                    conditions++;
+                }else{
+                    Toast.makeText(getApplicationContext(),"The email you entered already exists...", Toast.LENGTH_SHORT).show();
+                }
+                if(account.checkEmailFormat(input_email)){
+                    conditions++;
+                }else{
+                    Toast.makeText(getApplicationContext(),"Incorrect email format", Toast.LENGTH_SHORT).show();
+                }
+                if(account.checkPasswordValidity(input_password1) ){
+                    conditions++;
+                }else{
+                    Toast.makeText(getApplicationContext(),"The password must be between 6-15 characters...", Toast.LENGTH_SHORT).show();
+                }
+                if(account.checkPasswordEquality(input_password1, input_password2)){
+                    conditions++;
+                }else{
+                    Toast.makeText(getApplicationContext(),"The passwords you entered do not match...", Toast.LENGTH_SHORT).show();
+                }
+                if(conditions==8){
+                    showMenu();
+                }
+
 
             }
         });

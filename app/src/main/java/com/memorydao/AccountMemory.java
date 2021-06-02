@@ -39,7 +39,7 @@ public class AccountMemory implements AccountDAO {
 
     @Override
     public boolean checkName(String name) {
-        if(name!=null){
+        if(!name.equals("")){
             return true;
         }
         return false;
@@ -47,7 +47,7 @@ public class AccountMemory implements AccountDAO {
 
     @Override
     public boolean checkSurname(String surname) {
-        if(surname!=null){
+        if(!surname.equals("")){
             return true;
         }
         return false;
