@@ -2,6 +2,7 @@ package com.r4;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +41,8 @@ public class TeamRecyclerViewAdapter extends RecyclerView.Adapter<TeamRecyclerVi
         holder.apply_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.TeamSelection(holder.mItem);
+                listener.TeamSelection(teams.get(position),Menu.user);
+                Log.e("after click","clickity click");
             }
         });
 
@@ -62,7 +64,7 @@ public class TeamRecyclerViewAdapter extends RecyclerView.Adapter<TeamRecyclerVi
             super(view);
             req_text = (TextView) view.findViewById(R.id.requirements);
             limit_txt = (TextView) view.findViewById(R.id.team_limit);
-            apply_btn=  view.findViewById(R.id.team_limit);
+            apply_btn=  view.findViewById(R.id.apply_btn);
         }
 
         @Override

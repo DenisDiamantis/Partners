@@ -2,6 +2,8 @@ package com.dao;
 import com.r4.Account;
 import com.r4.Student;
 
+import java.util.List;
+
 public interface AccountDAO {
 
     public void saveAccount(Account account);
@@ -23,4 +25,6 @@ public interface AccountDAO {
     public boolean checkEmailFormat(String email);
 
     public boolean checkEmailExistance(String email);
+
+    public List<Account> getAccounts();
 }

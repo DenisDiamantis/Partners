@@ -8,7 +8,7 @@ import java.util.List;
 
 public class TeamMemory implements TeamDAO {
 
-    List<Team> teams = new ArrayList<>();
+    static List<Team> teams = new ArrayList<>();
 
     @Override
     public void saveTeam(Team team) {

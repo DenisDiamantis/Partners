@@ -19,6 +19,7 @@ public class SignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+        setTitle("Create new Account");
         EditText name = findViewById(R.id.Student_Name);
         EditText surname = findViewById(R.id.Student_Surname);
         EditText password1 = findViewById(R.id.Student_Password1);

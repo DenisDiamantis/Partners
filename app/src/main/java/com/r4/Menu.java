@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +13,7 @@ import com.dao.Initializer;
 import com.memorydao.InitializerMemory;
 
 public class Menu extends AppCompatActivity implements MenuView{
+    protected static final String CURRENT_USER_AM = "current user AM";
     Button search_team_btn;
     Button messages_btn;
     Button create_team_btn;
@@ -19,10 +21,14 @@ public class Menu extends AppCompatActivity implements MenuView{
     Button my_teams;
     EditText course_Txt;
     MenuPresenter presenter;
+    protected static final String user="p3180068";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent =getIntent();
+       // user=intent.getStringExtra(CURRENT_USER_AM);
         setContentView(R.layout.activity_menu);
+        setTitle("Menu");
         Initializer initializer=new InitializerMemory();
         initializer.prepareData();
         search_team_btn = findViewById(R.id.Search_Button);
@@ -36,7 +42,7 @@ public class Menu extends AppCompatActivity implements MenuView{
             @Override
             public void onClick(View v) {
                 String  course=course_Txt.getText().toString();
-                presenter.showResults(course);
+                presenter.showResults(course,user);
                 //showMenu();
             }
         });
@@ -52,9 +58,9 @@ public class Menu extends AppCompatActivity implements MenuView{
     }
 
     @Override
-    public void showResults(String course) {
+    public void showResults(String course,String user) {
         Intent intent = new Intent(this,SearchResults.class);
-        intent.putExtra(SearchResults.COURSE_NAME_KEYWORD,course);
+        Log.e("user",user);
         startActivity(intent);
     }
 }

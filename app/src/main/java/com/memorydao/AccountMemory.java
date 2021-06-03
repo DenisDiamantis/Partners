@@ -4,6 +4,7 @@ import com.dao.AccountDAO;
 import com.r4.Account;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AccountMemory implements AccountDAO {
 
@@ -88,6 +89,11 @@ public class AccountMemory implements AccountDAO {
             }
         }
         return true;
+    }
+
+    @Override
+    public List<Account> getAccounts() {
+        return accounts;
     }
 
     @Override

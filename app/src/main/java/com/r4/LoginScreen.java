@@ -33,7 +33,7 @@ public class LoginScreen extends AppCompatActivity {
                 String AM = AMText.getText().toString();
                 String password = PasswordText.getText().toString();
                 if(account.loginCheck(AM,password)){
-                    showMenu();
+                    showMenu(AM);
                 }else{
                     Toast.makeText(getApplicationContext(),"Invalid credentials, try again...", Toast.LENGTH_SHORT).show();
                 }
@@ -50,8 +50,9 @@ public class LoginScreen extends AppCompatActivity {
         Intent intent = new Intent(this, SignUp.class);
         startActivity(intent);
     }
-    public void showMenu(){
+    public void showMenu(String AM){
         Intent intent = new Intent(this,Menu.class);
+        intent.putExtra(Menu.CURRENT_USER_AM,AM);
         startActivity(intent);
     }
 }

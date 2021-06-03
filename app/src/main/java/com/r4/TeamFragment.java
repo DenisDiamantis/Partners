@@ -31,7 +31,7 @@ public class TeamFragment extends Fragment {
      * fragment (e.g. upon screen orientation changes).
      */
     public interface OnInteractionListener{
-        public void TeamSelection(Team team);
+        public void TeamSelection(Team team,String user);
         public List<Team> getTeams();
     }
     private OnInteractionListener listener;

@@ -4,10 +4,11 @@ import com.dao.StudentDAO;
 import com.r4.Student;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class StudentMemory implements StudentDAO {
 
-    ArrayList<Student> students = new ArrayList<>();
+    static  ArrayList<Student> students = new ArrayList<>();
 
 
     @Override
@@ -15,5 +16,10 @@ public class StudentMemory implements StudentDAO {
         if(!students.contains(student)){
             students.add(student);
         }
+    }
+
+    @Override
+    public List<Student> getStudents() {
+        return students;
     }
 }
