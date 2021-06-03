@@ -4,16 +4,22 @@ import com.dao.TeamDAO;
 import com.r4.Team;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TeamMemory implements TeamDAO {
 
-    ArrayList<Team> teams = new ArrayList<>();
+    List<Team> teams = new ArrayList<>();
 
     @Override
     public void saveTeam(Team team) {
         if(!teams.contains(team)){
             teams.add(team);
         }
+    }
+
+    @Override
+    public List<Team> allTeams() {
+        return teams;
     }
 
 }

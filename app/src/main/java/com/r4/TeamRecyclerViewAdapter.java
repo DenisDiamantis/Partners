@@ -3,11 +3,10 @@ package com.r4;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
-
-import com.r4.placeholder.PlaceholderContent.Team;
-import com.r4.databinding.FragmentItemBinding;
 
 import java.util.List;
 
@@ -18,23 +17,33 @@ import java.util.List;
 public class TeamRecyclerViewAdapter extends RecyclerView.Adapter<TeamRecyclerViewAdapter.ViewHolder> {
 
     private final List<Team> teams;
-
-    public TeamRecyclerViewAdapter(List<Team> items) {
+    private TeamFragment.OnInteractionListener listener;
+    public TeamRecyclerViewAdapter(List<Team> items,TeamFragment.OnInteractionListener listener) {
         teams = items;
+        this.listener=listener;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-        return new ViewHolder(FragmentItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+        View view=LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.fragment_item,parent,false);
+        return new ViewHolder(view);
 
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = teams.get(position);
-        holder.mIdView.setText(teams.get(position).id);
-        holder.mContentView.setText(teams.get(position).content);
+        holder.req_text.setText(teams.get(position).getRequirements());
+        holder.limit_txt.setText(teams.get(position).getMembers().size()+"/"+
+                                 teams.get(position).getProject().getMaxNumber());
+        holder.apply_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.TeamSelection(holder.mItem);
+            }
+        });
+
     }
 
     @Override
@@ -43,19 +52,22 @@ public class TeamRecyclerViewAdapter extends RecyclerView.Adapter<TeamRecyclerVi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public final TextView mIdView;
-        public final TextView mContentView;
+
+        public final TextView req_text;
+        public final TextView limit_txt;
+        public final Button apply_btn;
         public Team mItem;
 
-        public ViewHolder(FragmentItemBinding binding) {
-            super(binding.getRoot());
-            mIdView = binding.itemNumber;
-            mContentView = binding.content;
+        public ViewHolder(View view) {
+            super(view);
+            req_text = (TextView) view.findViewById(R.id.requirements);
+            limit_txt = (TextView) view.findViewById(R.id.team_limit);
+            apply_btn=  view.findViewById(R.id.team_limit);
         }
 
         @Override
         public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
+            return super.toString() + " '" + req_text.getText() + "'";
         }
     }
 }

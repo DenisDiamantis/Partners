@@ -3,6 +3,7 @@ package com.r4;
 import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,9 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.r4.placeholder.PlaceholderContent;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,6 +30,12 @@ public class TeamFragment extends Fragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
+    public interface OnInteractionListener{
+        public void TeamSelection(Team team);
+        public List<Team> getTeams();
+    }
+    private OnInteractionListener listener;
+
     public TeamFragment() {
     }
 
@@ -57,7 +62,7 @@ public class TeamFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_item_list, container, false);
-
+        List<Team> teams=listener.getTeams();
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
@@ -67,9 +72,19 @@ public class TeamFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            List<Team> teams = new ArrayList<>();
-            recyclerView.setAdapter(new TeamRecyclerViewAdapter());
+            recyclerView.setAdapter(new TeamRecyclerViewAdapter(teams,listener));
         }
         return view;
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+
+        if(context instanceof OnInteractionListener){
+            listener= (OnInteractionListener) context;
+        }else{
+            throw new RuntimeException(context.toString()+ " must implement OnInteractionListener()");
+        }
     }
 }

@@ -16,13 +16,6 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
-    buildFeatures {
-        viewBinding = true
-    }
-    dataBinding{
-        enabled=true
-    }
-
     defaultConfig {
         applicationId "com.r3"
         minSdkVersion 16
