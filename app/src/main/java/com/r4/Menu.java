@@ -14,6 +14,7 @@ import com.memorydao.InitializerMemory;
 
 public class Menu extends AppCompatActivity implements MenuView{
     protected static final String CURRENT_USER_AM = "current user AM";
+    public static final String COURSE_SEARCH = "course_search";
     Button search_team_btn;
     Button messages_btn;
     Button create_team_btn;
@@ -46,6 +47,24 @@ public class Menu extends AppCompatActivity implements MenuView{
                 //showMenu();
             }
         });
+        messages_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        create_team_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showMenu();
+            }
+        });
+        my_teams.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //getTeams
+            }
+        });
     }
     public void showMenu(){
         Intent intent = new Intent(this,CreateTeam.class);
@@ -61,6 +80,13 @@ public class Menu extends AppCompatActivity implements MenuView{
     public void showResults(String course,String user) {
         Intent intent = new Intent(this,SearchResults.class);
         Log.e("user",user);
+        intent.putExtra(CURRENT_USER_AM,user);
+        intent.putExtra(COURSE_SEARCH,course);
         startActivity(intent);
+    }
+
+    @Override
+    public void showMessages(String user){
+
     }
 }

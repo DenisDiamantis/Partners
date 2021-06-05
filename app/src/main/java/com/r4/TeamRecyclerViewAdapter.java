@@ -41,7 +41,7 @@ public class TeamRecyclerViewAdapter extends RecyclerView.Adapter<TeamRecyclerVi
         holder.apply_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.TeamSelection(teams.get(position),Menu.user);
+                listener.TeamSelection(teams.get(position));
                 Log.e("after click","clickity click");
             }
         });

@@ -44,4 +44,6 @@
     <string name="requirements">Requirements :</string>
     <string name="Example_Requirements">Courses passed, GPA etc</string>
     <string name="apply">APPLY</string>
+    <string name="accept">ACCEPT</string>
+    <string name="decline">DECLINE</string>
 </resources>

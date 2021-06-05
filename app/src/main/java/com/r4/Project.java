@@ -19,4 +19,6 @@ public class Project {
     public String getDeadline() {
         return deadline;
     }
+
+    public Course getCourse(){ return course; }
 }

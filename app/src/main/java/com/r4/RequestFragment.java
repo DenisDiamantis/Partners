@@ -3,7 +3,6 @@ package com.r4;
 import android.content.Context;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,30 +18,29 @@ import java.util.List;
 /**
  * A fragment representing a list of Items.
  */
-public class TeamFragment extends Fragment {
+public class RequestFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
+    private OnRequestListener listener;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public interface OnInteractionListener{
-        public void TeamSelection(Team team);
-        public List<Team> getTeams();
+    public RequestFragment() {
     }
-    private OnInteractionListener listener;
-
-    public TeamFragment() {
+    public interface OnRequestListener{
+        public void AcceptSelection(Request request);
+        public void DeclineSelection(Request request);
+        public List<Request> getRequests();
     }
-
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static TeamFragment newInstance(int columnCount) {
-        TeamFragment fragment = new TeamFragment();
+    public static RequestFragment newInstance(int columnCount) {
+        RequestFragment fragment = new RequestFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -57,12 +55,11 @@ public class TeamFragment extends Fragment {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_item_list, container, false);
-        List<Team> teams=listener.getTeams();
+        View view = inflater.inflate(R.layout.fragment_item_list2, container, false);
+        List<Request> requests = listener.getRequests();
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
@@ -72,19 +69,8 @@ public class TeamFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new TeamRecyclerViewAdapter(teams,listener));
+            recyclerView.setAdapter(new RequestRecyclerViewAdapter(requests,listener));
         }
         return view;
-    }
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-
-        if(context instanceof OnInteractionListener){
-            listener= (OnInteractionListener) context;
-        }else{
-            throw new RuntimeException(context.toString()+ " must implement OnInteractionListener()");
-        }
     }
 }
