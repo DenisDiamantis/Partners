@@ -6,4 +6,10 @@ public interface MenuView {
     void showResults(String course,String user);
 
     void showMessages(String user);
+
+    void createTeam();
+
+    void showErrorCourse(String s);
+
+    void myTeams();
 }

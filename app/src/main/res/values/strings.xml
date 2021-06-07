@@ -42,8 +42,10 @@
     <string name="create_my_team">CREATE MY TEAM</string>
     <string name="create_a_new_team">CREATE A NEW TEAM</string>
     <string name="requirements">Requirements :</string>
-    <string name="Example_Requirements">Courses passed, GPA etc</string>
+    <string name="Example_Requirements">Courses passed, skills etc</string>
     <string name="apply">APPLY</string>
     <string name="accept">ACCEPT</string>
     <string name="decline">DECLINE</string>
+    <string name="course">Course :</string>
+    <string name="view">view</string>
 </resources>

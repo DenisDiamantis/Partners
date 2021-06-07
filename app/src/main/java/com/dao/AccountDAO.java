@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface AccountDAO {
 
+    public void setAdminAccount(Account admin);
+
     public void saveAccount(Account account);
 
     public boolean loginCheck(String AM, String password);

@@ -9,9 +9,11 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.dao.AccountDAO;
+import com.dao.RequestDAO;
 import com.dao.StudentDAO;
 import com.dao.TeamDAO;
 import com.memorydao.AccountMemory;
+import com.memorydao.RequestMemory;
 import com.memorydao.StudentMemory;
 import com.memorydao.TeamMemory;
 
@@ -40,35 +42,18 @@ public class SearchResults extends AppCompatActivity implements TeamFragment.OnI
 
     @Override
     public void TeamSelection(Team team) {
-        for(int i=0;i<studentDAO.getStudents().size();i++)
-        {
-            Log.e("user",user);
-            Log.e("student",studentDAO.getStudents().get(i).getAM());
-            if(user.equals(studentDAO.getStudents().get(i).getAM())){
-                Log.e("Im in","finally");
-                Request request=new Request(studentDAO.getStudents().get(i),team,"I would like to join your team...");
-                for(int j=0;j<teamDAO.allTeams().size();j++)
-                {
-                    Log.e("team",team.toString());
-                    Log.e("dao",teamDAO.allTeams().get(j).toString());
-                    if(team.equals(teamDAO.allTeams().get(j))){
-                        Log.e("TOAST","inside");
-                        teamDAO.allTeams().get(j).addRequests(request);
-                        Toast.makeText(getApplicationContext(),"Application made",Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
+        Student student = studentDAO.findStudent(user);
+        Request request = student.sendRequest(team);
+        if (!teamDAO.findRequest(request)) {
+            team.addRequests(request);
+            Toast.makeText(getApplicationContext(), "Successfully applied", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Application already made", Toast.LENGTH_SHORT).show();
         }
     }
 
     @Override
     public List<Team> getTeams() {
-        List<Team> list = new ArrayList<>();
-        for(int p=0;p<teamDAO.allTeams().size();p++){
-            if(teamDAO.allTeams().get(p).getProject().getCourse().getTitle().equals(course)){
-               list.add(teamDAO.allTeams().get(p));
-            }
-        }
-        return list; 
+        return teamDAO.getAvailableTeams(studentDAO.findStudent(user).teams,course);
     }
 }

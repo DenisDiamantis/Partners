@@ -1,17 +1,16 @@
 package com.r4;
 
-public class Request {
+public class Request  {
 
     Student sender;
     Team application_team;
     int id;
-    String message = null;
     static boolean status = true;
 
-    public Request(Student sender, Team team, String message){
+    public Request(Student sender, Team team){
         this.sender = sender;
         this.application_team = team;
-        this.message = message;
+
     }
 
     public Student getSender() {
@@ -22,9 +21,7 @@ public class Request {
         return application_team;
     }
 
-    public String getMessage() {
-        return message;
-    }
+
 
     public void setStatus(boolean status) {
         this.status = status;
@@ -33,4 +30,5 @@ public class Request {
     public boolean getStatus() {
         return status;
     }
+
 }

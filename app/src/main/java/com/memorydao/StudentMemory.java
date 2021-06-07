@@ -18,8 +18,18 @@ public class StudentMemory implements StudentDAO {
         }
     }
 
+
     @Override
     public List<Student> getStudents() {
         return students;
+    }
+
+    @Override
+    public Student findStudent(String AM) {
+        for(int i=0;i<students.size();i++){
+            if(students.get(i).getAM().equals(AM))
+                return students.get(i);
+        }
+        return null;
     }
 }

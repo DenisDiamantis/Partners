@@ -2,7 +2,6 @@ package com.r4;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +14,11 @@ import java.util.List;
  * {@link RecyclerView.Adapter} that can display a {@link Team}.
  * TODO: Replace the implementation with code for your data type.
  */
-public class TeamRecyclerViewAdapter extends RecyclerView.Adapter<TeamRecyclerViewAdapter.ViewHolder> {
+public class MyTeamRecyclerViewAdapter extends RecyclerView.Adapter<MyTeamRecyclerViewAdapter.ViewHolder> {
 
     private final List<Team> teams;
-    private TeamFragment.OnInteractionListener listener;
-    public TeamRecyclerViewAdapter(List<Team> items,TeamFragment.OnInteractionListener listener) {
+    private MyTeamFragment.OnMyTeamListener listener;
+    public MyTeamRecyclerViewAdapter(List<Team> items,MyTeamFragment.OnMyTeamListener listener) {
         teams = items;
         this.listener=listener;
     }
@@ -27,7 +26,7 @@ public class TeamRecyclerViewAdapter extends RecyclerView.Adapter<TeamRecyclerVi
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view=LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_item,parent,false);
+                .inflate(R.layout.fragment_item3,parent,false);
         return new ViewHolder(view);
 
     }
@@ -35,14 +34,14 @@ public class TeamRecyclerViewAdapter extends RecyclerView.Adapter<TeamRecyclerVi
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = teams.get(position);
-        holder.req_text.setText(teams.get(position).getRequirements());
+        holder.course_text.setText(teams.get(position).getProject().getCourse().getTitle());
         holder.limit_txt.setText(teams.get(position).getMembers().size()+"/"+
-                                 teams.get(position).getProject().getMaxNumber());
-        holder.apply_btn.setOnClickListener(new View.OnClickListener() {
+                teams.get(position).getProject().getMaxNumber());
+        holder.deadline_text.setText(teams.get(position).getProject().getDeadline());
+        holder.view_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 listener.TeamSelection(teams.get(position));
-                removeAt(position);
             }
         });
 
@@ -55,26 +54,23 @@ public class TeamRecyclerViewAdapter extends RecyclerView.Adapter<TeamRecyclerVi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public final TextView req_text;
+        public final TextView course_text;
+        public final TextView deadline_text;
         public final TextView limit_txt;
-        public final Button apply_btn;
+        public final Button view_btn;
         public Team mItem;
 
         public ViewHolder(View view) {
             super(view);
-            req_text = (TextView) view.findViewById(R.id.requirements);
-            limit_txt = (TextView) view.findViewById(R.id.team_limit);
-            apply_btn=  view.findViewById(R.id.apply_btn);
+            course_text = (TextView) view.findViewById(R.id.course_name);
+            limit_txt = (TextView) view.findViewById(R.id.project_limit);
+            deadline_text=(TextView) view.findViewById(R.id.deadline);
+            view_btn=  view.findViewById(R.id.view_btn);
         }
 
         @Override
         public String toString() {
-            return super.toString() + " '" + req_text.getText() + "'";
+            return super.toString() + " '" + course_text.getText() + "'";
         }
-    }
-    public void removeAt(int position) {
-        teams.remove(position);
-        notifyItemRemoved(position);
-        notifyItemRangeChanged(position, teams.size());
     }
 }

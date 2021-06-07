@@ -10,4 +10,5 @@ public interface StudentDAO {
     public void saveStudent(Student student);
 
     public List<Student> getStudents();
+    public Student findStudent(String AM);
 }

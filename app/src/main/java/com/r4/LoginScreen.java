@@ -14,35 +14,34 @@ import com.dao.Initializer;
 import com.memorydao.AccountMemory;
 import com.memorydao.InitializerMemory;
 
-public class LoginScreen extends AppCompatActivity {
-
+public class LoginScreen extends AppCompatActivity implements  LoginView{
+    LoginPresenter presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
+        setTitle("Project Partners");
         EditText AMText = findViewById(R.id.AM);
         EditText PasswordText = findViewById(R.id.Password);
         Button LoginButton = findViewById(R.id.Login);
         Button SignUpButton = findViewById(R.id.SignUp);
+        InitializerMemory initializer = new InitializerMemory();
+        initializer.prepareData();
+        AccountDAO account = initializer.getAccountDAO();
+        presenter=new LoginPresenter(this);
+        presenter.setAccountDAO(account);
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InitializerMemory initializer = new InitializerMemory();
-                initializer.prepareData();
-                AccountDAO account = initializer.getAccountDAO();
                 String AM = AMText.getText().toString();
                 String password = PasswordText.getText().toString();
-                if(account.loginCheck(AM,password)){
-                    showMenu(AM);
-                }else{
-                    Toast.makeText(getApplicationContext(),"Invalid credentials, try again...", Toast.LENGTH_SHORT).show();
-                }
+                presenter.login(AM,password);
             }
         });
         SignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signUp();
+                presenter.signUp();
             }
         });
     }
@@ -54,5 +53,10 @@ public class LoginScreen extends AppCompatActivity {
         Intent intent = new Intent(this,Menu.class);
         intent.putExtra(Menu.CURRENT_USER_AM,AM);
         startActivity(intent);
+    }
+
+    @Override
+    public void ShowError(String error) {
+        Toast.makeText(this,error, Toast.LENGTH_SHORT).show();
     }
 }

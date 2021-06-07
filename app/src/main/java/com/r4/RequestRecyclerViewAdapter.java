@@ -30,7 +30,7 @@ public class RequestRecyclerViewAdapter extends RecyclerView.Adapter<RequestRecy
     @Override
     public RequestRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view=LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_item,parent,false);
+                .inflate(R.layout.fragment_item2,parent,false);
         return new RequestRecyclerViewAdapter.ViewHolder(view);
 
     }
@@ -38,23 +38,24 @@ public class RequestRecyclerViewAdapter extends RecyclerView.Adapter<RequestRecy
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = requests.get(position);
+        Log.e("result",requests.get(position).getSender().getSkills());
         holder.skillsText.setText(requests.get(position).getSender().getSkills());
         holder.timelineText.setText(requests.get(position).getSender().getTimeline());
+        holder.rating.setText(requests.get(position).getSender().getTotalEvaluation() +"/5.0");
         holder.accept_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 listener.AcceptSelection(requests.get(position));
-
+                removeAt(position);
             }
         });
         holder.decline_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 listener.DeclineSelection(requests.get(position));
-
+                removeAt(position);
             }
         });
-
     }
 
 
@@ -67,6 +68,7 @@ public class RequestRecyclerViewAdapter extends RecyclerView.Adapter<RequestRecy
 
         public final TextView skillsText;
         public final TextView timelineText;
+        public final TextView rating;
         public Request mItem;
         public final Button accept_button;
         public final Button decline_button;
@@ -77,6 +79,7 @@ public class RequestRecyclerViewAdapter extends RecyclerView.Adapter<RequestRecy
 
             skillsText = (TextView) view.findViewById(R.id.skills);
             timelineText = (TextView) view.findViewById(R.id.timeline);
+            rating=(TextView) view.findViewById(R.id.student_rating);
             accept_button=  view.findViewById(R.id.accept_button);
             decline_button = view.findViewById(R.id.decline_button);
         }
@@ -85,5 +88,10 @@ public class RequestRecyclerViewAdapter extends RecyclerView.Adapter<RequestRecy
         public String toString() {
             return super.toString() + " '" + skillsText.getText() + "'";
         }
+    }
+    public void removeAt(int position) {
+        requests.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, requests.size());
     }
 }

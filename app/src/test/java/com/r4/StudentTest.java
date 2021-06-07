@@ -30,7 +30,7 @@ public class StudentTest{
     public void Evaluate(){
         Evaluation evaluation = new Evaluation(evaluator,evaluatee,5);
         evaluator.addTeams(team);
-        evaluator.Evaluate(5,evaluatee);
+       // evaluator.Evaluate(5,evaluatee,);
         Assert.assertEquals(evaluator,evaluation.getEvaluator());
     }
     @Test
@@ -79,7 +79,7 @@ public class StudentTest{
     }
     @Test
     public void updateRequests(){
-        Request request = new Request(sender,team,"Hi");
+        Request request = new Request(sender,team);
         sender.updateRequests();
         Assert.assertEquals(0,sender.requests.size());
     }
@@ -100,7 +100,7 @@ public class StudentTest{
     @Test
     public void sendRequest(){
         boolean flag = false;
-        Request req = sender.sendRequest(team,"Hi");
+        Request req = sender.sendRequest(team);
         ArrayList<Request> temp = sender.requests;
         for(int i = 0; i< sender.requests.size();i++) {
             if(temp.get(i).equals(req)){

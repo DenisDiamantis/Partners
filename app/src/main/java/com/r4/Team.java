@@ -20,7 +20,6 @@ public class Team {
         return project;
     }
 
-
     public Student getFounder() {
         return founder;
     }
@@ -37,18 +36,22 @@ public class Team {
         requests.add(request);
     }
 
-    public void acceptRequest(Request request,Student student){
-        if(student.equals(founder)) {
+    public ArrayList<Request> getRequests() {
+        return requests;
+    }
+
+    public boolean acceptRequest(Request request){
+
             if (checkTeamSize()) {
                 members.add(request.getSender());
+                request.getSender().getTeams().add(this);
+                request.getSender().removeRequest(request);
+                return true;
             }
-        }
-
+        return false;
     }
-    public void declineRequest(Request request, Student student){
-        if(student.equals(founder)) {
-            request.setStatus(false);
-        }
+    public void declineRequest(Request request){
+        request.getSender().removeRequest(request);
     }
     public boolean checkTeamSize(){
         if(members.size()<project.getMaxNumber()) {

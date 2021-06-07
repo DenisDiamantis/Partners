@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AccountMemory implements AccountDAO {
-
+    static ArrayList<Account> admins=new ArrayList<>();
     static ArrayList<Account> accounts = new ArrayList<>();
 
     @Override
@@ -94,6 +94,13 @@ public class AccountMemory implements AccountDAO {
     @Override
     public List<Account> getAccounts() {
         return accounts;
+    }
+
+    @Override
+    public void setAdminAccount(Account admin) {
+        if(!admins.contains(admin)){
+            admins.add(admin);
+        }
     }
 
     @Override

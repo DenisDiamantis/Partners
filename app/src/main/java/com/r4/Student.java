@@ -1,6 +1,9 @@
 package com.r4;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -16,6 +19,7 @@ public class Student {
     ArrayList<Team> teams = new ArrayList<>();
     ArrayList<Request> requests = new ArrayList<>();
     ArrayList<Evaluation> evaluations = new ArrayList<>();
+    ArrayList<Evaluation> evaluated = new ArrayList<>();
 
 
     public Student() {
@@ -76,27 +80,29 @@ public class Student {
         teams.add(team);
     }
 
-    public void Evaluate(int evaluation, Student evaluatee) {
+    public boolean evaluate(int evaluation, Student evaluatee,Team team) {
 
-        boolean flag = false;
-        for(int j=0;j<teams.size();j++){
-           if(teams.get(j).getMembers().contains(this) && teams.get(j).getMembers().contains(evaluatee)){
-               flag = true;
-           }
+        Date d1 = new Date();
+        Date d2 = new Date();
+        SimpleDateFormat sdformat = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            d1 = sdformat.parse(team.getProject().getDeadline());
+            d2 = java.util.Calendar.getInstance().getTime();
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
-        if(flag) {
-            for(int k=0;k< evaluations.size();k++){
-                if(evaluations.get(k).getEvaluatee().equals(evaluatee)){
-                    return;
-                }
-            }
+
+        if(d1.compareTo(d2)<0) {
             Evaluation eval = new Evaluation(this, evaluatee, evaluation);
             evaluations.add(eval);
+            evaluatee.getEvaluated().add(eval);
+            return true;
         }
+        return false;
     }
 
-    public Request sendRequest(Team appl_team, String message) {
-        Request req = new Request(this, appl_team, message);
+    public Request sendRequest(Team appl_team) {
+        Request req = new Request(this, appl_team);
         requests.add(req);
         return req;
     }
@@ -121,16 +127,26 @@ public class Student {
         this.surname = surname;
     }
 
-    public void updateRequests() {
-        Iterator<Request> iter = requests.iterator();
-        while (iter.hasNext()) {
-            Request temp = iter.next();
-            if (!temp.getStatus()) {
-                iter.remove();
+    public void removeRequest(Request request) {
+        for(int i=0;i<requests.size();i++){
+            if(requests.get(i).getSender().getAM().equals(request.getSender().getAM())
+                    &&requests.get(i).getApplicationTeam().getProject().getCourse().getTitle().equals(request.getApplicationTeam().getProject().getCourse().getTitle())){
+                requests.remove(request);
+                break;
             }
         }
     }
 
+    public ArrayList<Evaluation> getEvaluated() {
+        return evaluated;
+    }
+    public double getTotalEvaluation(){
+        int total=0;
+        for(int i=0;i<evaluated.size();i++){
+            total+=evaluated.get(i).getGrade();
+        }
+        return (double)total/evaluated.size();
+    }
     public ArrayList<Team> getTeams() {
         return teams;
     }

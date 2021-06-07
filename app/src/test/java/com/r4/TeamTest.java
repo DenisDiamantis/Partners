@@ -46,7 +46,7 @@ public class TeamTest{
     public void acceptRequest(){
         Student newone = new Student("Lionel","Messi","p3152631","lionelthrilos","leo@gmail.com",null,null);
         Request request = new Request(newone,team,"Hi");
-        team.acceptRequest(request,founder);
+        team.acceptRequest(request);
         members.add(newone);
         Assert.assertEquals(members,team.getMembers());
     }
@@ -54,7 +54,7 @@ public class TeamTest{
     public void declineRequest(){
         Student newone = new Student("Lionel","Messi","p3152631","lionelthrilos","leo@gmail.com",null,null);
         Request request = new Request(newone,team,"Hi");
-        team.declineRequest(request,founder);
+        team.declineRequest(request);
         Assert.assertEquals(false,request.getStatus());
 
     }
@@ -62,7 +62,7 @@ public class TeamTest{
     public void checkTeamSize(){//an thelw na ginei to anapodo check bazw maxsize = 2 kai dhmioyrgw eswterika ena temp arraylist
         Student newone = new Student("Lionel","Messi","p3152631","lionelthrilos","leo@gmail.com",null,null);
         Request request = new Request(newone,team,"Hi");
-        team.acceptRequest(request,founder);
+        team.acceptRequest(request);
         members.add(newone);
         Assert.assertEquals(members,team.getMembers());
     }

@@ -63,18 +63,6 @@
         app:layout_constraintTop_toBottomOf="@+id/Message_Button" />
 
     <Button
-        android:id="@+id/Evaluate_Button"
-        android:layout_width="210dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/evaluate_member"
-        android:textSize="16sp"
-        app:backgroundTint="#931515"
-        app:layout_constraintEnd_toEndOf="@+id/Create_Team_Button"
-        app:layout_constraintStart_toStartOf="@+id/Create_Team_Button"
-        app:layout_constraintTop_toBottomOf="@+id/Create_Team_Button" />
-
-    <Button
         android:id="@+id/My_Teams_Button"
         android:layout_width="210dp"
         android:layout_height="50dp"
@@ -82,8 +70,8 @@
         android:text="@string/my_teams"
         android:textSize="16sp"
         app:backgroundTint="#931515"
-        app:layout_constraintEnd_toEndOf="@+id/Evaluate_Button"
-        app:layout_constraintStart_toStartOf="@+id/Evaluate_Button"
-        app:layout_constraintTop_toBottomOf="@+id/Evaluate_Button" />
+        app:layout_constraintEnd_toEndOf="@+id/Create_Team_Button"
+        app:layout_constraintStart_toStartOf="@+id/Create_Team_Button"
+        app:layout_constraintTop_toBottomOf="@+id/Create_Team_Button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

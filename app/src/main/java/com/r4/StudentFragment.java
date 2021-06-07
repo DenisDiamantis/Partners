@@ -19,29 +19,30 @@ import java.util.List;
 /**
  * A fragment representing a list of Items.
  */
-public class RequestFragment extends Fragment {
+public class StudentFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
-    private OnRequestListener listener;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public RequestFragment() {
+    public interface OnStudentListener{
+        public void EvaluateStudent(Student student ,int evaluation);
+        public List<Student> getStudents();
     }
-    public interface OnRequestListener{
-        public void AcceptSelection(Request request);
-        public void DeclineSelection(Request request);
-        public List<Request> getRequests();
+    private OnStudentListener listener;
+
+    public StudentFragment() {
     }
+
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static RequestFragment newInstance(int columnCount) {
-        RequestFragment fragment = new RequestFragment();
+    public static StudentFragment newInstance(int columnCount) {
+        StudentFragment fragment = new StudentFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -56,11 +57,12 @@ public class RequestFragment extends Fragment {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_item_list2, container, false);
-        List<Request> requests = listener.getRequests();
+        View view = inflater.inflate(R.layout.fragment_item_list4, container, false);
+        List<Student> Students=listener.getStudents();
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
@@ -70,7 +72,7 @@ public class RequestFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new RequestRecyclerViewAdapter(requests,listener));
+            recyclerView.setAdapter(new StudentRecyclerViewAdapter(Students,listener));
         }
         return view;
     }
@@ -79,10 +81,10 @@ public class RequestFragment extends Fragment {
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
 
-        if(context instanceof RequestFragment.OnRequestListener){
-            listener= (RequestFragment.OnRequestListener) context;
+        if(context instanceof OnStudentListener){
+            listener= (OnStudentListener) context;
         }else{
-            throw new RuntimeException(context.toString()+ " must implement OnInteractionListener()");
+            throw new RuntimeException(context.toString()+ " must implement OnStudentListener()");
         }
     }
 }

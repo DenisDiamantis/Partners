@@ -14,4 +14,25 @@ public class RequestMemory implements RequestDAO {
             requests.add(request);
         }
     }
+
+
+
+    @Override
+    public List<Request> getRequests(String user) {
+        List<Request> list = new ArrayList<>();
+
+        for (int i = 0; i < requests.size(); i++) {
+            if (requests.get(i).getApplicationTeam().getFounder().getAM().equals(user)) {
+                list.add(requests.get(i));
+            }
+        }
+        return list;
+    }
+
+    @Override
+    public void deleteRequest(Request request) {
+        if(requests.contains(request)){
+            requests.remove(request);
+        }
+    }
 }
