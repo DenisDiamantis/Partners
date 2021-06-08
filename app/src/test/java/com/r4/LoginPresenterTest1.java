@@ -12,7 +12,6 @@ public class LoginPresenterTest1{
 
     private LoginViewStub view;
     private LoginPresenter presenter;
-
     @Before
     public void setup(){
         Initializer initializer = new InitializerMemory();
@@ -20,6 +19,7 @@ public class LoginPresenterTest1{
         view = new LoginViewStub();
         LoginScreenViewModel viewmodel = new LoginScreenViewModel();
         presenter = viewmodel.getPresenter();
+        presenter.setView(view);
     }
 
     @Test
@@ -29,7 +29,7 @@ public class LoginPresenterTest1{
     }
     @Test
     public void loginFailed(){
-        presenter.login("p3180068","olympiakos");
+        presenter.login("p3180068","olympiakos_omadara");
         Assert.assertEquals(1,view.getErrorCount());
     }
     @Test

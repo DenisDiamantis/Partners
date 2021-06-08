@@ -19,7 +19,6 @@ import org.junit.Test;
 public class CreateTeamPresenterTest1{
     private CreateTeamViewStub view;
     private CreateTeamPresenter presenter;
-
     @Before
     public void setup(){
         Initializer initializer = new InitializerMemory();
@@ -27,6 +26,7 @@ public class CreateTeamPresenterTest1{
         view = new CreateTeamViewStub();
         CreateTeamViewModel viewmodel = new CreateTeamViewModel();
         presenter = viewmodel.getPresenter();
+        presenter.setView(view);
     }
     @Test
     public void invalidCourse(){

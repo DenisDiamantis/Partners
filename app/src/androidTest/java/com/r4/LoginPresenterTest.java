@@ -29,7 +29,7 @@ public class LoginPresenterTest{
     }
     @Test
     public void loginFailed(){
-        presenter.login("p3180068","olympiakos");
+        presenter.login("p3180068","olympiakos_omadara");
         Assert.assertEquals(1,view.getErrorCount());
     }
     @Test
