@@ -59,7 +59,7 @@ public class CreateTeamPresenter {
             }
 
         }else{
-            view.showErrorCourse("Course may not have project or else check your input...");
+            view.showErrorCourse("Course may not have a project or else check your input...");
         }
 
     }
