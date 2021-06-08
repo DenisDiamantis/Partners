@@ -8,8 +8,8 @@ public class RegisterProjectPresenter {
     private CourseDAO courseDAO;
     private ProjectDAO projectDAO;
 
-    public RegisterProjectPresenter(RegisterProjectView view){
-        this.view=view;
+    public RegisterProjectPresenter(){
+
     }
 
 
@@ -24,6 +24,10 @@ public class RegisterProjectPresenter {
         }else{
             view.showError("Project already exists");
         }
+    }
+
+    public void setView(RegisterProjectView view) {
+        this.view = view;
     }
 
     public void setCourseDAO(CourseDAO courseDAO) {

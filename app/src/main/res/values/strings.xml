@@ -48,4 +48,17 @@
     <string name="decline">DECLINE</string>
     <string name="course">Course :</string>
     <string name="view">view</string>
+    <string name="old_password">old password</string>
+    <string name="new_password">new password</string>
+    <string name="repeat_password">repeat password</string>
+    <string name="change_password">Change Password</string>
+    <string name="update_skills">Update Skills</string>
+    <string name="update_time">Update Time</string>
+    <string name="skillsmess">Skills</string>
+    <string name="available_timemess">Available Time</string>
+    <string name="rating">Rating</string>
+    <string name="submit">Submit</string>
+    <string name="team_limit">Team Limit :</string>
+    <string name="deadline">Deadline :</string>
+    <string name="evaluate">evaluate</string>
 </resources>

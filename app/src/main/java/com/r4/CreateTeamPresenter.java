@@ -17,8 +17,12 @@ public class CreateTeamPresenter {
     private ProjectDAO projectDAO;
     private StudentDAO studentDAO;
     private TeamDAO teamDAO;
-    public CreateTeamPresenter(CreateTeamView view) {
-        this.view=view;
+    public CreateTeamPresenter() {
+
+    }
+
+    public void setView(CreateTeamView view) {
+        this.view = view;
     }
 
     public void setCourseDAO(CourseDAO courseDAO) {

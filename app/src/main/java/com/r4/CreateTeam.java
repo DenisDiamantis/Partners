@@ -1,6 +1,7 @@
 package com.r4;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,14 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.dao.CourseDAO;
-import com.dao.ProjectDAO;
-import com.dao.StudentDAO;
-import com.dao.TeamDAO;
-import com.memorydao.CourseMemory;
-import com.memorydao.ProjectMemory;
-import com.memorydao.StudentMemory;
-import com.memorydao.TeamMemory;
 
 public class CreateTeam extends AppCompatActivity implements CreateTeamView {
 
@@ -35,15 +28,9 @@ public class CreateTeam extends AppCompatActivity implements CreateTeamView {
         course_txt=findViewById(R.id.teamCourse);
         requirements_txt=findViewById(R.id.teamReq);
         createTeam_btn=findViewById(R.id.createTeam);
-        presenter=new CreateTeamPresenter(this);
-        CourseDAO courseDAO=new CourseMemory();
-        StudentDAO studentDAO=new StudentMemory();
-        TeamDAO teamDAO =new TeamMemory();
-        ProjectDAO projectDAO=new ProjectMemory();
-        presenter.setCourseDAO(courseDAO);
-        presenter.setProjectDAO(projectDAO);
-        presenter.setStudentDAO(studentDAO);
-        presenter.setTeamDAO(teamDAO);
+        CreateTeamViewModel viewModel=new ViewModelProvider(this).get(CreateTeamViewModel.class);
+        presenter=viewModel.getPresenter();
+        presenter.setView(this);
         createTeam_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

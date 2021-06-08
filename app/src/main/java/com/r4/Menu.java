@@ -1,6 +1,8 @@
 package com.r4;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,7 +28,6 @@ public class Menu extends AppCompatActivity implements MenuView{
     EditText course_Txt;
     MenuPresenter presenter;
     String user;
-    CourseDAO course = new CourseMemory();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +41,9 @@ public class Menu extends AppCompatActivity implements MenuView{
         my_teams = findViewById(R.id.My_Teams_Button);
         course_Txt = findViewById(R.id.Enter_Course);
         editInfo_btn =findViewById(R.id.editInfo);
-        presenter=new MenuPresenter(this);
-        presenter.setCourseDAO(course);
+        MenuViewModel viewModel=new ViewModelProvider(this).get(MenuViewModel.class);
+        presenter=viewModel.getPresenter();
+        presenter.setView(this);
         search_team_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

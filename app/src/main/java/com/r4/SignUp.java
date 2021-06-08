@@ -1,6 +1,7 @@
 package com.r4;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -32,11 +33,9 @@ public class SignUp extends AppCompatActivity implements SignUpView {
         EditText skills = findViewById(R.id.Student_Skills);
         EditText timeline = findViewById(R.id.Student_Timeline);
         Button continue_btn = findViewById(R.id.button);
-        presenter=new SignUpPresenter(this);
-        AccountDAO accountDAO=new AccountMemory();
-        presenter.setAccountDAO(accountDAO);
-        StudentDAO studentDAO=new StudentMemory();
-        presenter.setStudentDAO(studentDAO);
+        SignUpViewModel viewModel=new ViewModelProvider(this).get(SignUpViewModel.class);
+        presenter=viewModel.getPresenter();
+        presenter.setView(this);
         continue_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

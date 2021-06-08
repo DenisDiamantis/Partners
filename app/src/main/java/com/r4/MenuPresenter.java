@@ -10,8 +10,8 @@ import com.memorydao.RequestMemory;
 public class MenuPresenter {
     private MenuView view;
     private CourseDAO courseDAO;
-    public MenuPresenter(MenuView menu) {
-        this.view=menu;
+    public MenuPresenter() {
+
     }
 
     public void showResults(String course,String user) {
@@ -38,6 +38,10 @@ public class MenuPresenter {
 
     public void showMessages(String user) {
         view.showMessages(user);
+    }
+
+    public void setView(MenuView view) {
+        this.view = view;
     }
 
     public void setCourseDAO(CourseDAO courseDAO){

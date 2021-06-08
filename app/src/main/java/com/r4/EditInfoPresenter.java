@@ -8,8 +8,8 @@ public class EditInfoPresenter {
     private EditInfoView view;
     private AccountDAO accountDAO;
     private StudentDAO studentDAO;
-    public EditInfoPresenter(EditInfoView menu) {
-        this.view=menu;
+    public EditInfoPresenter() {
+
     }
     public void changePassword(String user,String oldpassword,String newpassword,String repeatpassword){
         if(accountDAO.loginCheck(user,oldpassword)){
@@ -42,12 +42,16 @@ public class EditInfoPresenter {
     }
     public void updateTime(String user,String time){
         if(time.isEmpty()){
-            view.showErrorNullSkills("Field time cannot be null");
+            view.showErrorNullTime("Field time cannot be null");
         }else{
             studentDAO.findStudent(user).setTimeline(time);
-            view.showSuccessfulUpdateSkills("Timeline successfully updated");
+            view.showSuccessfulUpdateTime("Timeline successfully updated");
         }
 
+    }
+
+    public void setView(EditInfoView view) {
+        this.view = view;
     }
 
     public void setAccountDAO(AccountDAO accountDAO) {

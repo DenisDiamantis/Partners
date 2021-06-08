@@ -1,6 +1,7 @@
 package com.r4;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,6 +30,7 @@ public class EditInfo extends AppCompatActivity implements EditInfoView{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_info);
+        setTitle("Edit Info");
         Intent intent=getIntent();
         user=intent.getStringExtra(Menu.CURRENT_USER_AM);
         oldPass_Txt=findViewById(R.id.old_password);
@@ -39,11 +41,9 @@ public class EditInfo extends AppCompatActivity implements EditInfoView{
         change_password = findViewById(R.id.change_password);
         update_skills=findViewById(R.id.update_skills);
         update_time=findViewById(R.id.update_time);
-        AccountDAO accountDAO=new AccountMemory();
-        StudentDAO studentDAO=new StudentMemory();
-        presenter=new EditInfoPresenter(this);
-        presenter.setAccountDAO(accountDAO);
-        presenter.setStudentDAO(studentDAO);
+        EditInfoViewModel viewModel=new ViewModelProvider(this).get(EditInfoViewModel.class);
+        presenter=viewModel.getPresenter();
+        presenter.setView(this);
         change_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,10 +67,6 @@ public class EditInfo extends AppCompatActivity implements EditInfoView{
                 presenter.updateTime(user,time);
             }
         });
-
-
-
-
 
     }
 

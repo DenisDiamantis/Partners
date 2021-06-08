@@ -1,6 +1,7 @@
 package com.r4;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,24 +18,22 @@ import com.memorydao.InitializerMemory;
 public class LoginScreen extends AppCompatActivity implements  LoginView{
 
     LoginPresenter presenter;
-    AccountDAO account=new AccountMemory();
+
     InitializerMemory initializer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
         setTitle("Project Partners");
+        initializer = new InitializerMemory();
+        initializer.prepareData();
         EditText AMText = findViewById(R.id.AM);
         EditText PasswordText = findViewById(R.id.Password);
         Button LoginButton = findViewById(R.id.Login);
         Button SignUpButton = findViewById(R.id.SignUp);
-
-        if(account.getAccounts().isEmpty()) {
-            initializer = new InitializerMemory();
-            initializer.prepareData();
-        }
-        presenter=new LoginPresenter(this);
-        presenter.setAccountDAO(account);
+        LoginScreenViewModel viewModel= new ViewModelProvider(this).get(LoginScreenViewModel.class);
+        presenter=viewModel.getPresenter();
+        presenter.setView(this);
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

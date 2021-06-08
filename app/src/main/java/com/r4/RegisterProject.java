@@ -1,6 +1,7 @@
 package com.r4;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 
 import android.os.Bundle;
@@ -8,11 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import com.dao.CourseDAO;
-import com.dao.ProjectDAO;
-import com.memorydao.CourseMemory;
-import com.memorydao.ProjectMemory;
 
 public class RegisterProject extends AppCompatActivity implements RegisterProjectView {
     EditText course_txt;
@@ -28,12 +24,10 @@ public class RegisterProject extends AppCompatActivity implements RegisterProjec
         course_txt=findViewById(R.id.projectname);
         limit_txt=findViewById(R.id.limit);
         deadline_txt=findViewById(R.id.deadlineProject);
-        sumbit_btn=findViewById(R.id.sumbit);
-        presenter=new RegisterProjectPresenter(this);
-        CourseDAO courseDAO=new CourseMemory();
-        presenter.setCourseDAO(courseDAO);
-        ProjectDAO projectDAO=new ProjectMemory();
-        presenter.setProjectDAO(projectDAO);
+        sumbit_btn=findViewById(R.id.submit);
+        RegisterProjectViewModel viewModel=new ViewModelProvider(this).get(RegisterProjectViewModel.class);
+        presenter=viewModel.getPresenter();
+        presenter.setView(this);
         sumbit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

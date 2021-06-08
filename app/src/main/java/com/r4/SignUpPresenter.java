@@ -8,8 +8,8 @@ public class SignUpPresenter {
     private SignUpView view;
     private AccountDAO accountDAO;
     private StudentDAO studentDAO;
-    public SignUpPresenter(SignUpView view) {
-        this.view=view;
+    public SignUpPresenter() {
+
     }
 
 
@@ -71,6 +71,10 @@ public class SignUpPresenter {
             view.showSuccess("Account successfully created");
             view.showMenu();
         }
+    }
+
+    public void setView(SignUpView view) {
+        this.view = view;
     }
 
     public void setStudentDAO(StudentDAO studentDAO) {

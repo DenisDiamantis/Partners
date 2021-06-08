@@ -5,8 +5,7 @@ import com.dao.AccountDAO;
 public class LoginPresenter {
     private LoginView view;
     private AccountDAO accountDAO;
-    public LoginPresenter(LoginView view) {
-        this.view=view;
+    public LoginPresenter() {
     }
 
 
@@ -21,6 +20,11 @@ public class LoginPresenter {
             }
         }
     }
+
+    public void setView(LoginView view) {
+        this.view = view;
+    }
+
     public void signUp(){
         view.signUp();
     }
