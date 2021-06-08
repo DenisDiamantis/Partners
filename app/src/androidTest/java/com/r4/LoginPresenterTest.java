@@ -12,15 +12,13 @@ public class LoginPresenterTest{
 
     private LoginViewStub view;
     private LoginPresenter presenter;
-    private AccountDAO accountDAO;
     @Before
     public void setup(){
         Initializer initializer = new InitializerMemory();
         initializer.prepareData();
-        accountDAO = new AccountMemory();
         view = new LoginViewStub();
-        presenter = new LoginPresenter(view);
-        presenter.setAccountDAO(accountDAO);
+        LoginScreenViewModel viewmodel = new LoginScreenViewModel();
+        presenter = viewmodel.getPresenter();
     }
 
     @Test

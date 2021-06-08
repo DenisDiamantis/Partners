@@ -18,19 +18,14 @@ import org.junit.Test;
 public class SignUpPresenterTest {
     private SignUpViewStub view;
     private SignUpPresenter presenter;
-    private AccountDAO accountDAO;
-    private StudentDAO studentDAO;
     //"p3180068","olympiacos","olympiacos","kar@aueb.gr","Platon","Karageorgis","",""
     @Before
     public void setup(){
         Initializer initializer = new InitializerMemory();
         initializer.prepareData();
-        accountDAO = new AccountMemory();
-        studentDAO = new StudentMemory();
         view = new SignUpViewStub();
-        presenter = new SignUpPresenter(view);
-        presenter.setAccountDAO(accountDAO);
-        presenter.setStudentDAO(studentDAO);
+        SignUpViewModel viewmodel = new SignUpViewModel();
+        presenter = viewmodel.getPresenter();
     }
     @Test
     public void AMexists(){
