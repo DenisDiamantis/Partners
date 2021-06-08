@@ -35,12 +35,12 @@ public abstract class Initializer {
         Student dimitris = new Student("Dimitris", "Avgeris","p3180069","dimitris318","dimitris@gmail.com","java,Computer science,android development,javascript","only mornings");
         Student admin = new Student("Giorgos", "Giapitzakis","null","adminpower","georgegp@gmail.com","null","null");
 
-        Account nikos_account=   new Account(nikos);
-        Account kostas_account=   new Account(kostas);
-        Account giannis_account=  new Account(giannis);
-        Account maria_account=    new Account(maria);
+        Account nikos_account  =   new Account(nikos);
+        Account kostas_account =   new Account(kostas);
+        Account giannis_account =  new Account(giannis);
+        Account maria_account   =    new Account(maria);
         Account dimitris_account= new Account(dimitris);
-        Account admin_account=    new Account(admin);
+        Account admin_account   =    new Account(admin);
         Account kleio_account=new Account(kleio);
         Account platonas_account=new Account(platonas);
         Account denis_account=new Account(denis);
@@ -68,23 +68,42 @@ public abstract class Initializer {
         getAccountDAO().saveAccount(kleio_account);
         getAccountDAO().saveAccount(platonas_account);
         getAccountDAO().saveAccount(denis_account);
+        getAccountDAO().saveAccount(nikos_account);
+        getAccountDAO().saveAccount(kostas_account );
+        getAccountDAO().saveAccount(giannis_account );
+        getAccountDAO().saveAccount(maria_account );
+        getAccountDAO().saveAccount(dimitris_account);
+
+
         getTeamDAO().saveTeam(team_r4);
         getTeamDAO().saveTeam(team_tik_tok);
+        getStudentDAO().saveStudent(denis);
         getStudentDAO().saveStudent(kleio);
         getStudentDAO().saveStudent(platonas);
-        getStudentDAO().saveStudent(denis);
+        getStudentDAO().saveStudent(nikos);
+        getStudentDAO().saveStudent(kostas);
+        getStudentDAO().saveStudent(giannis);
+        getStudentDAO().saveStudent(maria);
+        getStudentDAO().saveStudent(dimitris);
+
 
 
         Request request_denis=new Request(denis,team_r4);
         Request request_kleio=new Request(kleio,team_tik_tok);
         Request request_giannis=new Request(giannis,team_tik_tok);
-        Request request_maria=new Request(maria,team_tik_tok);
+        Request request_dimitris=new Request(denis,team_tik_tok);
         Request request_nikos=new Request(nikos,team_tik_tok);
+        team_r4.addRequests(request_denis);
+        team_tik_tok.addRequests(request_kleio);
+        team_tik_tok.addRequests(request_giannis);
+        team_tik_tok.addRequests(request_dimitris);
+        team_tik_tok.addRequests(request_nikos);
+
 
         getRequestDAO().saveRequest(request_kleio);
         getRequestDAO().saveRequest(request_denis);
         getRequestDAO().saveRequest(request_giannis);
-        getRequestDAO().saveRequest(request_maria);
+        getRequestDAO().saveRequest(request_dimitris);
         getRequestDAO().saveRequest(request_nikos);
 
 

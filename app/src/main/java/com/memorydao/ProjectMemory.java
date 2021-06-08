@@ -25,7 +25,7 @@ public class ProjectMemory implements ProjectDAO {
     @Override
     public Project findProject(String course) {
         for (int i=0;i<projects.size();i++){
-            if(projects.get(i).getCourse().equals(course))
+            if(projects.get(i).getCourse().getTitle().equals(course))
                 return projects.get(i);
         }
         return null;

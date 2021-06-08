@@ -1,5 +1,7 @@
 package com.r4;
 
+import android.util.Log;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -81,24 +83,26 @@ public class Student {
     }
 
     public boolean evaluate(int evaluation, Student evaluatee,Team team) {
+            Date d1 = new Date();
+            Date d2 = new Date();
 
-        Date d1 = new Date();
-        Date d2 = new Date();
-        SimpleDateFormat sdformat = new SimpleDateFormat("dd/MM/yyyy");
-        try {
-            d1 = sdformat.parse(team.getProject().getDeadline());
-            d2 = java.util.Calendar.getInstance().getTime();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+            SimpleDateFormat sdformat = new SimpleDateFormat("dd/MM/yyyy");
+            try {
+                d1 = sdformat.parse(team.getProject().getDeadline());
+                d2 = java.util.Calendar.getInstance().getTime();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            Log.e("d1", String.valueOf(d1));
+            Log.e("d2", String.valueOf(d2));
+            if (d1.compareTo(d2) < 0) {
+                Evaluation eval = new Evaluation(this, evaluatee, evaluation,team);
+                evaluations.add(eval);
+                evaluatee.getEvaluated().add(eval);
+                return true;
+            }
+            return false;
 
-        if(d1.compareTo(d2)<0) {
-            Evaluation eval = new Evaluation(this, evaluatee, evaluation);
-            evaluations.add(eval);
-            evaluatee.getEvaluated().add(eval);
-            return true;
-        }
-        return false;
     }
 
     public Request sendRequest(Team appl_team) {
@@ -136,7 +140,16 @@ public class Student {
             }
         }
     }
-
+    public boolean checkEvaluation(Student evaluatee,Team team){
+        for(int i=0;i<evaluations.size();i++) {
+            if (evaluations.get(i).evaluator.getAM().equals(this.getAM()) &&
+                    evaluations.get(i).getEvaluatee().getAM().equals(evaluatee.getAM())&&
+                    evaluations.get(i).getTeam().getProject().getCourse().getTitle().equals(team.getProject().getCourse().getTitle())){
+                    return false;
+            }
+        }
+        return true;
+    }
     public ArrayList<Evaluation> getEvaluated() {
         return evaluated;
     }

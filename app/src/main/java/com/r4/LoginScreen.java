@@ -16,6 +16,8 @@ import com.memorydao.InitializerMemory;
 
 public class LoginScreen extends AppCompatActivity implements  LoginView{
     LoginPresenter presenter;
+    AccountDAO account=new AccountMemory();
+    InitializerMemory initializer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,9 +27,11 @@ public class LoginScreen extends AppCompatActivity implements  LoginView{
         EditText PasswordText = findViewById(R.id.Password);
         Button LoginButton = findViewById(R.id.Login);
         Button SignUpButton = findViewById(R.id.SignUp);
-        InitializerMemory initializer = new InitializerMemory();
-        initializer.prepareData();
-        AccountDAO account = initializer.getAccountDAO();
+
+        if(account.getAccounts().isEmpty()) {
+            initializer = new InitializerMemory();
+            initializer.prepareData();
+        }
         presenter=new LoginPresenter(this);
         presenter.setAccountDAO(account);
         LoginButton.setOnClickListener(new View.OnClickListener() {

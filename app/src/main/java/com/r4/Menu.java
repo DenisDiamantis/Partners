@@ -22,12 +22,12 @@ public class Menu extends AppCompatActivity implements MenuView{
     Button my_teams;
     EditText course_Txt;
     MenuPresenter presenter;
-    protected static final String user="p3150129";
+    String user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent =getIntent();
-       // user=intent.getStringExtra(CURRENT_USER_AM);
+        user=intent.getStringExtra(CURRENT_USER_AM);
         setContentView(R.layout.activity_menu);
         setTitle("Menu");
         search_team_btn = findViewById(R.id.Search_Button);
@@ -106,5 +106,12 @@ public class Menu extends AppCompatActivity implements MenuView{
         Intent intent = new Intent(this,MyTeams.class);
         intent.putExtra(CURRENT_USER_AM,user);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this,LoginScreen.class);
+        startActivity(intent);
+        super.onBackPressed();
     }
 }

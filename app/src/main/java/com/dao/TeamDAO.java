@@ -12,7 +12,7 @@ public interface TeamDAO {
 
     public void saveTeam(Team team);
 
-    public boolean findRequest(Request request);
+    public boolean findRequest(Team team,Request request);
 
     public Team findTeam(String course);
     List<Team> getAvailableTeams(List<Team> myteams,String course);

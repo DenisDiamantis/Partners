@@ -44,8 +44,9 @@ public class CreateTeamPresenter {
                     ArrayList<Student> members = new ArrayList<>();
                     members.add(studentDAO.findStudent(user));
                     Team newTeam = new Team(projectDAO.findProject(course), studentDAO.findStudent(user), members, requirements);
+                    Log.e("cousre",projectDAO.findProject(course).getCourse().getTitle());
+                    studentDAO.findStudent(user).addTeams(newTeam);
                     teamDAO.saveTeam(newTeam);
-                    Log.e("team", newTeam.getRequirements());
                     view.showSuccess("Team creation was successful");
                 } else {
                         view.showErrorCheckTeams("You are already registered with a team for "+course);

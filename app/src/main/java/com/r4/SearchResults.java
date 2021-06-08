@@ -25,6 +25,7 @@ public class SearchResults extends AppCompatActivity implements TeamFragment.OnI
     public static final String COURSE_NAME_KEYWORD = "course_name_keyword";
     private TeamDAO teamDAO;
     private StudentDAO studentDAO;
+    private RequestDAO requestDAO =new RequestMemory();
     private String user;
     private String course;
 
@@ -44,8 +45,9 @@ public class SearchResults extends AppCompatActivity implements TeamFragment.OnI
     public void TeamSelection(Team team) {
         Student student = studentDAO.findStudent(user);
         Request request = student.sendRequest(team);
-        if (!teamDAO.findRequest(request)) {
+        if (!teamDAO.findRequest(team,request)) {
             team.addRequests(request);
+            requestDAO.saveRequest(request);
             Toast.makeText(getApplicationContext(), "Successfully applied", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(getApplicationContext(), "Application already made", Toast.LENGTH_SHORT).show();

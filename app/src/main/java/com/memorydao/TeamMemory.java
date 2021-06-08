@@ -23,7 +23,7 @@ public class TeamMemory implements TeamDAO {
     }
 
     @Override
-    public boolean findRequest(Request request) {
+    public boolean findRequest(Team team,Request request) {
         for(int j=0;j<teams.size();j++)
         {
            for(int i=0;i<teams.get(j).getRequests().size();i++)

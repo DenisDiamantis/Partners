@@ -35,15 +35,22 @@ public class TeamOverview extends AppCompatActivity implements StudentFragment.O
 
     @Override
     public void EvaluateStudent(Student student, int evaluation) {
-        if(evaluation>=0 && evaluation<=5) {
-            if (studentDAO.findStudent(user).evaluate(evaluation, student, teamDAO.findTeam(course))) {
-                Toast.makeText(getApplicationContext(), "Evaluation successful", Toast.LENGTH_SHORT).show();
+        if (evaluation >= 0 && evaluation <= 5) {
+            if (studentDAO.findStudent(user).checkEvaluation(student, teamDAO.findTeam(course))) {
+                if (studentDAO.findStudent(user).evaluate(evaluation, student, teamDAO.findTeam(course))) {
+                    Toast.makeText(getApplicationContext(), "Evaluation successful", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "You have to wait after the deadline", Toast.LENGTH_SHORT).show();
+                }
             } else {
-                Toast.makeText(getApplicationContext(), "You have to wait after the deadline", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Already evaluated", Toast.LENGTH_SHORT).show();
             }
-        }else{
+
+
+        } else {
             Toast.makeText(getApplicationContext(), "Evaluation must be from 0 to 5", Toast.LENGTH_SHORT).show();
         }
+
     }
 
     @Override
