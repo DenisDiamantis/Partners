@@ -5,7 +5,7 @@
     <id>Relation</id>
     <coordinates>
       <x>306</x>
-      <y>126</y>
+      <y>90</y>
       <w>279</w>
       <h>36</h>
     </coordinates>
@@ -17,9 +17,9 @@ createTeam(course, user, requirements)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>567</x>
-      <y>117</y>
+      <y>81</y>
       <w>18</w>
-      <h>612</h>
+      <h>891</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -28,7 +28,7 @@ createTeam(course, user, requirements)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>567</x>
-      <y>54</y>
+      <y>18</y>
       <w>27</w>
       <h>990</h>
     </coordinates>
@@ -40,7 +40,7 @@ createTeam(course, user, requirements)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>576</x>
-      <y>153</y>
+      <y>117</y>
       <w>306</w>
       <h>36</h>
     </coordinates>
@@ -52,7 +52,7 @@ courseDAO.findCourse(course)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>828</x>
-      <y>36</y>
+      <y>0</y>
       <w>108</w>
       <h>27</h>
     </coordinates>
@@ -63,7 +63,7 @@ courseDAO.findCourse(course)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>864</x>
-      <y>54</y>
+      <y>18</y>
       <w>27</w>
       <h>999</h>
     </coordinates>
@@ -74,9 +74,9 @@ courseDAO.findCourse(course)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>864</x>
-      <y>144</y>
+      <y>108</y>
       <w>18</w>
-      <h>387</h>
+      <h>63</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -85,7 +85,7 @@ courseDAO.findCourse(course)</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>0</x>
-      <y>180</y>
+      <y>144</y>
       <w>558</w>
       <h>315</h>
     </coordinates>
@@ -118,7 +118,7 @@ courseDAO.findCourse(course)</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>504</x>
-      <y>36</y>
+      <y>0</y>
       <w>144</w>
       <h>27</h>
     </coordinates>
@@ -128,10 +128,10 @@ courseDAO.findCourse(course)</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>891</x>
-      <y>207</y>
-      <w>1080</w>
-      <h>432</h>
+      <x>900</x>
+      <y>144</y>
+      <w>747</w>
+      <h>873</h>
     </coordinates>
     <panel_attributes>ALT
 courseDAO.findCourse(course)</panel_attributes>
@@ -141,18 +141,18 @@ courseDAO.findCourse(course)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1206</x>
-      <y>54</y>
+      <y>18</y>
       <w>27</w>
-      <h>1017</h>
+      <h>1044</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;1110.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;1140.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1161</x>
-      <y>36</y>
+      <y>0</y>
       <w>108</w>
       <h>27</h>
     </coordinates>
@@ -160,92 +160,70 @@ courseDAO.findCourse(course)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>1206</x>
-      <y>549</y>
-      <w>18</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
       <x>576</x>
-      <y>549</y>
-      <w>972</w>
+      <y>927</y>
+      <w>648</w>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 viewShowErrorCourse("Course May Not Have A Project Or Check Your Input)</panel_attributes>
-    <additional_attributes>1060.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>700.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>954</x>
-      <y>243</y>
-      <w>720</w>
-      <h>225</h>
+      <x>945</x>
+      <y>189</y>
+      <w>666</w>
+      <h>666</h>
     </coordinates>
     <panel_attributes>ALT
-requirements.equals("")</panel_attributes>
+!requirements.equals("")</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>882</x>
-      <y>468</y>
-      <w>1107</w>
+      <x>891</x>
+      <y>891</y>
+      <w>774</w>
       <h>27</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>1210.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>840.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>945</x>
-      <y>369</y>
-      <w>747</w>
+      <x>936</x>
+      <y>738</y>
+      <w>693</w>
       <h>27</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;810.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;750.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>576</x>
-      <y>315</y>
-      <w>1188</w>
+      <x>585</x>
+      <y>792</y>
+      <w>639</w>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 viewShowErrorRequirements("Requirements Can Not Be Empty")</panel_attributes>
-    <additional_attributes>1300.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLGeneric</id>
-    <coordinates>
-      <x>1206</x>
-      <y>387</y>
-      <w>18</w>
-      <h>72</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes/>
+    <additional_attributes>690.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>1548</x>
-      <y>279</y>
-      <w>414</w>
-      <h>90</h>
+      <x>1035</x>
+      <y>342</y>
+      <w>540</w>
+      <h>396</h>
     </coordinates>
     <panel_attributes>ALT
 !teamDAO.checkTeams(studentDAO.student(user).getTeams(), course)</panel_attributes>
@@ -254,31 +232,19 @@ viewShowErrorRequirements("Requirements Can Not Be Empty")</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1539</x>
-      <y>351</y>
-      <w>450</w>
+      <x>1026</x>
+      <y>639</y>
+      <w>567</w>
       <h>27</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;480.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>576</x>
-      <y>279</y>
-      <w>864</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-viewShowErrorCheckTeams("You Are Already Registered For This Course")</panel_attributes>
-    <additional_attributes>940.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>10.0;10.0;610.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1413</x>
-      <y>54</y>
+      <y>18</y>
       <w>27</w>
       <h>1017</h>
     </coordinates>
@@ -289,7 +255,7 @@ viewShowErrorCheckTeams("You Are Already Registered For This Course")</panel_att
     <id>UMLGeneric</id>
     <coordinates>
       <x>1359</x>
-      <y>36</y>
+      <y>0</y>
       <w>108</w>
       <h>27</h>
     </coordinates>
@@ -300,7 +266,7 @@ viewShowErrorCheckTeams("You Are Already Registered For This Course")</panel_att
     <id>Relation</id>
     <coordinates>
       <x>1530</x>
-      <y>54</y>
+      <y>18</y>
       <w>27</w>
       <h>1017</h>
     </coordinates>
@@ -311,7 +277,7 @@ viewShowErrorCheckTeams("You Are Already Registered For This Course")</panel_att
     <id>UMLGeneric</id>
     <coordinates>
       <x>1485</x>
-      <y>36</y>
+      <y>0</y>
       <w>108</w>
       <h>27</h>
     </coordinates>
@@ -322,9 +288,9 @@ viewShowErrorCheckTeams("You Are Already Registered For This Course")</panel_att
     <id>UMLGeneric</id>
     <coordinates>
       <x>1530</x>
-      <y>270</y>
+      <y>279</y>
       <w>18</w>
-      <h>189</h>
+      <h>54</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -332,47 +298,196 @@ viewShowErrorCheckTeams("You Are Already Registered For This Course")</panel_att
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1530</x>
-      <y>549</y>
+      <x>1206</x>
+      <y>936</y>
       <w>18</w>
-      <h>72</h>
+      <h>63</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
   </element>
   <element>
-    <id>Relation</id>
+    <id>UMLGeneric</id>
     <coordinates>
-      <x>873</x>
-      <y>333</y>
-      <w>684</w>
-      <h>36</h>
+      <x>1701</x>
+      <y>441</y>
+      <w>108</w>
+      <h>27</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.
-showSuccess()</panel_attributes>
-    <additional_attributes>10.0;20.0;740.0;20.0</additional_attributes>
+    <panel_attributes>_:newTeam</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1206</x>
+      <y>666</y>
+      <w>18</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>576</x>
-      <y>342</y>
-      <w>972</w>
+      <y>234</y>
+      <w>855</w>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-</panel_attributes>
-    <additional_attributes>1060.0;20.0;10.0;20.0</additional_attributes>
+studentDAO.findStudent(user)</panel_attributes>
+    <additional_attributes>930.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1746</x>
-      <y>324</y>
-      <w>108</w>
-      <h>27</h>
+      <x>1413</x>
+      <y>243</y>
+      <w>18</w>
+      <h>54</h>
     </coordinates>
-    <panel_attributes>_:TeamDAO_</panel_attributes>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>270</y>
+      <w>963</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+teamDAO.checksTeams(studentDAO.findStudent(user).getTeams(), course))</panel_attributes>
+    <additional_attributes>1050.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1206</x>
+      <y>801</y>
+      <w>18</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>657</y>
+      <w>639</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+showErrorCheckTeams("You are already registered with a team for "+course)</panel_attributes>
+    <additional_attributes>690.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1413</x>
+      <y>387</y>
+      <w>18</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>387</y>
+      <w>855</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+studentDAO.findStudent(user)</panel_attributes>
+    <additional_attributes>930.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>432</y>
+      <w>1143</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+</panel_attributes>
+    <additional_attributes>1250.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1413</x>
+      <y>468</y>
+      <w>18</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>468</y>
+      <w>855</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+studentDAO.findStudent(user)</panel_attributes>
+    <additional_attributes>930.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>567</x>
+      <y>531</y>
+      <w>981</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+teamDAO.saveTeam(newTeam)</panel_attributes>
+    <additional_attributes>1070.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1530</x>
+      <y>531</y>
+      <w>18</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>567</y>
+      <w>648</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+showSuccess("Team creation was successful")</panel_attributes>
+    <additional_attributes>700.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1206</x>
+      <y>576</y>
+      <w>18</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes/>
     <additional_attributes/>
   </element>
 </diagram>
