@@ -19,7 +19,14 @@ public class AccountMemory implements AccountDAO {
         }
         return false;
     }
-
+    public boolean adminCheck(String AM, String password){
+        for(int i=0;i<admins.size();i++){
+            if(admins.get(i).getAM().equals(AM) && admins.get(i).getPassword().equals(password)){
+                return true;
+            }
+        }
+        return false;
+    }
     @Override
     public boolean checkPasswordValidity(String password) {
 

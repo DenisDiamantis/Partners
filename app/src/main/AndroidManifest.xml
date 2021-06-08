@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Find_A_Team">
-        <activity android:name=".TeamOverview"></activity>
+        <activity android:name=".EditInfo"></activity>
+        <activity android:name=".RegisterProject" />
+        <activity android:name=".TeamOverview" />
         <activity android:name=".MyTeams" />
         <activity android:name=".Messages" />
         <activity android:name=".CreateTeam" />

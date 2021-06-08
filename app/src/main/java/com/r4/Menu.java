@@ -20,6 +20,7 @@ public class Menu extends AppCompatActivity implements MenuView{
     Button messages_btn;
     Button create_team_btn;
     Button my_teams;
+    Button editInfo_btn;
     EditText course_Txt;
     MenuPresenter presenter;
     String user;
@@ -35,6 +36,7 @@ public class Menu extends AppCompatActivity implements MenuView{
         create_team_btn = findViewById(R.id.Create_Team_Button);
         my_teams = findViewById(R.id.My_Teams_Button);
         course_Txt = findViewById(R.id.Enter_Course);
+        editInfo_btn =findViewById(R.id.editInfo);
         presenter=new MenuPresenter(this);
         search_team_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +62,12 @@ public class Menu extends AppCompatActivity implements MenuView{
             @Override
             public void onClick(View v) {
                 presenter.myTeams();
+            }
+        });
+        editInfo_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.editInfo();
             }
         });
     }
@@ -104,6 +112,13 @@ public class Menu extends AppCompatActivity implements MenuView{
     @Override
     public void myTeams() {
         Intent intent = new Intent(this,MyTeams.class);
+        intent.putExtra(CURRENT_USER_AM,user);
+        startActivity(intent);
+    }
+
+    @Override
+    public void editInfo() {
+        Intent intent = new Intent(this,EditInfo.class);
         intent.putExtra(CURRENT_USER_AM,user);
         startActivity(intent);
     }

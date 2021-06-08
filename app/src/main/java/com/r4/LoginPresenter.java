@@ -11,10 +11,14 @@ public class LoginPresenter {
 
 
     public void login(String AM,String password){
-        if(accountDAO.loginCheck(AM,password)){
-            view.showMenu(AM);
-        }else{
-           view.ShowError("Account not found with those credentials");
+        if(accountDAO.adminCheck(AM,password)){
+            view.showRegisterScreen();
+        }else {
+            if (accountDAO.loginCheck(AM, password)) {
+                view.showMenu(AM);
+            } else {
+                view.ShowError("Account not found with those credentials");
+            }
         }
     }
     public void signUp(){

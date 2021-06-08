@@ -33,7 +33,7 @@ public abstract class Initializer {
         Student giannis = new Student("Giannis", "Chatzis","p3150139","giannis315","giannis@gmail.com","c++,java,python,sql","monday,thursday mornings else all others days afteroon");
         Student maria = new Student("Maria","Deli","p3180066","maria318","maria@gmail.com","not filled yet","monday-friday mornings,weekend afternoons");
         Student dimitris = new Student("Dimitris", "Avgeris","p3180069","dimitris318","dimitris@gmail.com","java,Computer science,android development,javascript","only mornings");
-        Student admin = new Student("Giorgos", "Giapitzakis","null","adminpower","georgegp@gmail.com","null","null");
+        Student admin = new Student("Giorgos", "Giapitzakis","admin","adminpower","georgegp@gmail.com","null","null");
 
         Account nikos_account  =   new Account(nikos);
         Account kostas_account =   new Account(kostas);
@@ -73,7 +73,7 @@ public abstract class Initializer {
         getAccountDAO().saveAccount(giannis_account );
         getAccountDAO().saveAccount(maria_account );
         getAccountDAO().saveAccount(dimitris_account);
-
+        getAccountDAO().setAdminAccount(admin_account);
 
         getTeamDAO().saveTeam(team_r4);
         getTeamDAO().saveTeam(team_tik_tok);

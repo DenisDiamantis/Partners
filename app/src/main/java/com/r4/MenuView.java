@@ -12,4 +12,6 @@ public interface MenuView {
     void showErrorCourse(String s);
 
     void myTeams();
+
+    void editInfo();
 }

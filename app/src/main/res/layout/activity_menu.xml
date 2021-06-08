@@ -7,6 +7,18 @@
     tools:context=".Menu">
 
     <Button
+        android:id="@+id/editInfo"
+        android:layout_width="210dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:text="Edit Info"
+        android:textSize="16sp"
+        app:backgroundTint="#931515"
+        app:layout_constraintEnd_toEndOf="@+id/My_Teams_Button"
+        app:layout_constraintStart_toStartOf="@+id/My_Teams_Button"
+        app:layout_constraintTop_toBottomOf="@+id/My_Teams_Button" />
+
+    <Button
         android:id="@+id/Search_Button"
         android:layout_width="210dp"
         android:layout_height="50dp"

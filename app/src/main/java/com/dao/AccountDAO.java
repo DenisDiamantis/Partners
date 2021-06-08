@@ -5,7 +5,7 @@ import com.r4.Student;
 import java.util.List;
 
 public interface AccountDAO {
-
+    public  boolean adminCheck(String AM, String password);
     public void setAdminAccount(Account admin);
 
     public void saveAccount(Account account);

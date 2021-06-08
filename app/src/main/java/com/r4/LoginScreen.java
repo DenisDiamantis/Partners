@@ -63,4 +63,10 @@ public class LoginScreen extends AppCompatActivity implements  LoginView{
     public void ShowError(String error) {
         Toast.makeText(this,error, Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public void showRegisterScreen() {
+        Intent intent = new Intent(this, RegisterProject.class);
+        startActivity(intent);
+    }
 }

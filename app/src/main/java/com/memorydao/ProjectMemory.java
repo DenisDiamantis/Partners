@@ -3,6 +3,7 @@ package com.memorydao;
 import com.dao.ProjectDAO;
 import com.r4.Project;
 
+import java.security.Policy;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,4 +31,16 @@ public class ProjectMemory implements ProjectDAO {
         }
         return null;
     }
+
+    public boolean checkProject(Project project){
+        for(int i=0;i<projects.size();i++){
+            if(projects.get(i).getCourse().getTitle().equals(project.getCourse().getTitle()) &&
+                    projects.get(i).getMaxNumber()==project.getMaxNumber()&&
+                    projects.get(i).getDeadline().equals(project.getDeadline())){
+                return false;
+            }
+        }
+        return true;
+    }
+
 }

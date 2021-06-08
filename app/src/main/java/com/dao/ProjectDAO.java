@@ -12,6 +12,6 @@ public interface ProjectDAO {
 
     public Project findProject(String course);
 
-
+    public boolean checkProject(Project project);
 
 }

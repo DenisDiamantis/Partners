@@ -26,6 +26,9 @@ public class MenuPresenter {
             }
         }
     }
+    public void editInfo() {
+        view.editInfo();
+    }
     public void myTeams(){
         view.myTeams();
     }
