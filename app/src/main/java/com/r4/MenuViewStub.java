@@ -46,8 +46,4 @@ public class MenuViewStub implements MenuView{
 
     }
 
-    @Override
-    public void onBackPressed() {
-
-    }
 }

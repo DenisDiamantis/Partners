@@ -31,7 +31,7 @@ public class CreateTeamPresenterTest1{
     @Test
     public void invalidCourse(){
         presenter.createTeam("Klaketes", "p3160068","");
-        Assert.assertEquals("Course may not have project or else check your input...",view.getErrorCourse());
+        Assert.assertEquals("Course may not have a project or else check your input...",view.getErrorCourse());
     }
     @Test
     public void nullRequirements(){
