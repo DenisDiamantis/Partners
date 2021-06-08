@@ -27,6 +27,17 @@ public class AccountMemory implements AccountDAO {
         }
         return false;
     }
+
+    @Override
+    public Account findAccount(String user) {
+        for(int i=0;i<accounts.size();i++){
+            if(accounts.get(i).getAM().equals(user)){
+                return accounts.get(i);
+            }
+        }
+        return null;
+    }
+
     @Override
     public boolean checkPasswordValidity(String password) {
 
