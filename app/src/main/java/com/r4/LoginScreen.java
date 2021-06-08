@@ -15,15 +15,18 @@ import com.memorydao.InitializerMemory;
 public class LoginScreen extends AppCompatActivity implements  LoginView{
 
     LoginPresenter presenter;
-
+    static boolean flag=true;
     InitializerMemory initializer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
         setTitle("Project Partners");
-        initializer = new InitializerMemory();
-        initializer.prepareData();
+        if(flag) {
+            initializer = new InitializerMemory();
+            initializer.prepareData();
+            flag=false;
+        }
         EditText AMText = findViewById(R.id.AM);
         EditText PasswordText = findViewById(R.id.Password);
         Button LoginButton = findViewById(R.id.Login);

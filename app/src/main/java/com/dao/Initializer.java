@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public abstract class Initializer {
 
     public void prepareData(){
-        if(getAccountDAO().getAccounts().isEmpty()) {
+
             Course soft_eng = new Course("Software Engineering");
             Course dist_systems = new Course("Distributed Systems");
             Course databases = new Course("Databases");
@@ -108,7 +108,7 @@ public abstract class Initializer {
             getRequestDAO().saveRequest(request_giannis);
             getRequestDAO().saveRequest(request_dimitris);
             getRequestDAO().saveRequest(request_nikos);
-        }
+
 
     }
     public abstract AccountDAO getAccountDAO();
