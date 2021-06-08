@@ -48,7 +48,6 @@ public class CreateTeamPresenter {
                     ArrayList<Student> members = new ArrayList<>();
                     members.add(studentDAO.findStudent(user));
                     Team newTeam = new Team(projectDAO.findProject(course), studentDAO.findStudent(user), members, requirements);
-                    Log.e("course",projectDAO.findProject(course).getCourse().getTitle());
                     studentDAO.findStudent(user).addTeams(newTeam);
                     teamDAO.saveTeam(newTeam);
                     view.showSuccess("Team creation was successful");
