@@ -49,7 +49,7 @@ public class CreateTeamPresenter {
                     members.add(studentDAO.findStudent(user));
                     Team newTeam = new Team(projectDAO.findProject(course), studentDAO.findStudent(user), members, requirements);
                     studentDAO.findStudent(user).addTeams(newTeam);
-                    teamDAO.saveTeam(newTeam);
+                        teamDAO.saveTeam(newTeam);
                     view.showSuccess("Team creation was successful");
                 } else {
                         view.showErrorCheckTeams("You are already registered with a team for "+course);
