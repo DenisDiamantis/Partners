@@ -18,7 +18,6 @@ import org.junit.Test;
 public class SignUpPresenterTest1 {
     private SignUpViewStub view;
     private SignUpPresenter presenter;
-
     //"p3180068","olympiacos","olympiacos","kar@aueb.gr","Platon","Karageorgis","",""
     @Before
     public void setup(){
@@ -27,6 +26,7 @@ public class SignUpPresenterTest1 {
         view = new SignUpViewStub();
         SignUpViewModel viewmodel = new SignUpViewModel();
         presenter = viewmodel.getPresenter();
+        presenter.setView(view);
     }
     @Test
     public void AMexists(){

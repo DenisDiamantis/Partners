@@ -1,6 +1,9 @@
 package com.r4;
 
 
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+
 import com.dao.AccountDAO;
 import com.dao.Initializer;
 import com.dao.StudentDAO;
@@ -17,7 +20,6 @@ public class EditInfoPresenterTest1 {
     private EditInfoViewStub view;
     private EditInfoPresenter presenter;
 
-
     @Before
     public void setup() {
         Initializer initializer = new InitializerMemory();
@@ -25,7 +27,7 @@ public class EditInfoPresenterTest1 {
         view = new EditInfoViewStub();
         EditInfoViewModel viewmodel = new EditInfoViewModel();
         presenter = viewmodel.getPresenter();
-
+        presenter.setView(view);
     }
     @Test
     public void incorrectPassword(){
