@@ -12,15 +12,13 @@ import org.junit.Test;
 public class MenuPresenterTest1{
     private MenuViewStub view;
     private MenuPresenter presenter;
-    private CourseDAO courseDAO;
     @Before
     public void setup(){
         Initializer initializer = new InitializerMemory();
         initializer.prepareData();
-        courseDAO = new CourseMemory();
         view = new MenuViewStub();
-        presenter = new MenuPresenter(view);
-        presenter.setCourseDAO(courseDAO);
+        MenuViewModel viewmodel = new MenuViewModel();
+        presenter = viewmodel.getPresenter();
     }
     @Test
     public void doNotShowResults(){

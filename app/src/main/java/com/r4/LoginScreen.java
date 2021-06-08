@@ -10,9 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.dao.AccountDAO;
-import com.dao.Initializer;
-import com.memorydao.AccountMemory;
 import com.memorydao.InitializerMemory;
 
 public class LoginScreen extends AppCompatActivity implements  LoginView{

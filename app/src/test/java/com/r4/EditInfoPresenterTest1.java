@@ -16,19 +16,15 @@ import org.junit.Test;
 public class EditInfoPresenterTest1 {
     private EditInfoViewStub view;
     private EditInfoPresenter presenter;
-    private StudentDAO studentDAO;
-    private AccountDAO accountDAO;
+
 
     @Before
     public void setup() {
         Initializer initializer = new InitializerMemory();
         initializer.prepareData();
-        studentDAO = new StudentMemory();
-        accountDAO = new AccountMemory();
         view = new EditInfoViewStub();
-        presenter = new EditInfoPresenter(view);
-        presenter.setStudentDAO(studentDAO);
-        presenter.setAccountDAO(accountDAO);
+        EditInfoViewModel viewmodel = new EditInfoViewModel();
+        presenter = viewmodel.getPresenter();
 
     }
     @Test

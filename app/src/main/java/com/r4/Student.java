@@ -1,13 +1,11 @@
 package com.r4;
 
-import android.util.Log;
+
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
 
 public class Student {
 
@@ -93,8 +91,6 @@ public class Student {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            Log.e("d1", String.valueOf(d1));
-            Log.e("d2", String.valueOf(d2));
             if (d1.compareTo(d2) < 0) {
                 Evaluation eval = new Evaluation(this, evaluatee, evaluation,team);
                 evaluations.add(eval);

@@ -2,7 +2,7 @@ package com.r4;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

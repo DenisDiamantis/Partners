@@ -19,24 +19,14 @@ import org.junit.Test;
 public class CreateTeamPresenterTest1{
     private CreateTeamViewStub view;
     private CreateTeamPresenter presenter;
-    private CourseDAO courseDAO;
-    private ProjectDAO projectDAO;
-    private StudentDAO studentDAO;
-    private TeamDAO teamDAO;
+
     @Before
     public void setup(){
         Initializer initializer = new InitializerMemory();
         initializer.prepareData();
-        courseDAO = new CourseMemory();
-        projectDAO = new ProjectMemory();
-        studentDAO = new StudentMemory();
-        teamDAO = new TeamMemory();
         view = new CreateTeamViewStub();
-        presenter = new CreateTeamPresenter(view);
-        presenter.setCourseDAO(courseDAO);
-        presenter.setProjectDAO(projectDAO);
-        presenter.setStudentDAO(studentDAO);
-        presenter.setTeamDAO(teamDAO);
+        CreateTeamViewModel viewmodel = new CreateTeamViewModel();
+        presenter = viewmodel.getPresenter();
     }
     @Test
     public void invalidCourse(){

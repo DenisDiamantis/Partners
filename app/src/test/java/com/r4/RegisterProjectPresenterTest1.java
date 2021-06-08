@@ -19,18 +19,14 @@ import org.junit.Test;
 public class RegisterProjectPresenterTest1{
     private RegisterProjectViewStub view;
     private RegisterProjectPresenter presenter;
-    private ProjectDAO projectDAO;
-    private CourseDAO courseDAO;
+
     @Before
     public void setup(){
         Initializer initializer = new InitializerMemory();
         initializer.prepareData();
-        projectDAO = new ProjectMemory();
-        courseDAO = new CourseMemory();
         view = new RegisterProjectViewStub();
-        presenter = new RegisterProjectPresenter(view);
-        presenter.setProjectDAO(projectDAO);
-        presenter.setCourseDAO(courseDAO);
+        RegisterProjectViewModel viewmodel = new RegisterProjectViewModel();
+        presenter = viewmodel.getPresenter();
     }
     @Test
     public void createProjectFail(){

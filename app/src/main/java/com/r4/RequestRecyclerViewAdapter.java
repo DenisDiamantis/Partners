@@ -2,14 +2,13 @@ package com.r4;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.r4.databinding.FragmentItem2Binding;
 
 import java.util.List;
 
@@ -38,7 +37,6 @@ public class RequestRecyclerViewAdapter extends RecyclerView.Adapter<RequestRecy
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = requests.get(position);
-        Log.e("result",requests.get(position).getSender().getSkills());
         holder.skillsText.setText(requests.get(position).getSender().getSkills());
         holder.timelineText.setText(requests.get(position).getSender().getTimeline());
         holder.rating.setText(requests.get(position).getSender().getTotalEvaluation() +"/5.0");

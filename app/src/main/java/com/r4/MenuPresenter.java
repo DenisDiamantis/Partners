@@ -1,11 +1,8 @@
 package com.r4;
 
-import android.util.Log;
+
 
 import com.dao.CourseDAO;
-import com.dao.RequestDAO;
-import com.memorydao.CourseMemory;
-import com.memorydao.RequestMemory;
 
 public class MenuPresenter {
     private MenuView view;
