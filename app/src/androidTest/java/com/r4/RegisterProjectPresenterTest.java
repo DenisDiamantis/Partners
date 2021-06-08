@@ -27,6 +27,7 @@ public class RegisterProjectPresenterTest{
         view = new RegisterProjectViewStub();
         RegisterProjectViewModel viewmodel = new RegisterProjectViewModel();
         presenter = viewmodel.getPresenter();
+        presenter.setView(view);
     }
     @Test
     public void createProjectFail(){

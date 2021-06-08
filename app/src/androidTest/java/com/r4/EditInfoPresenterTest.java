@@ -27,7 +27,7 @@ public class EditInfoPresenterTest {
         view = new EditInfoViewStub();
         EditInfoViewModel viewmodel = new EditInfoViewModel();
         presenter = viewmodel.getPresenter();
-
+        presenter.setView(view);
     }
     @Test
     public void incorrectPassword(){

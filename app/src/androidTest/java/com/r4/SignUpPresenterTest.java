@@ -26,6 +26,7 @@ public class SignUpPresenterTest {
         view = new SignUpViewStub();
         SignUpViewModel viewmodel = new SignUpViewModel();
         presenter = viewmodel.getPresenter();
+        presenter.setView(view);
     }
     @Test
     public void AMexists(){

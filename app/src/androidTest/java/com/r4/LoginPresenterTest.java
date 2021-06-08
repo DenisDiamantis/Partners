@@ -19,6 +19,7 @@ public class LoginPresenterTest{
         view = new LoginViewStub();
         LoginScreenViewModel viewmodel = new LoginScreenViewModel();
         presenter = viewmodel.getPresenter();
+        presenter.setView(view);
     }
 
     @Test

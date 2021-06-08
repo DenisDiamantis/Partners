@@ -19,6 +19,7 @@ public class MenuPresenterTest{
         view = new MenuViewStub();
         MenuViewModel viewmodel = new MenuViewModel();
         presenter = viewmodel.getPresenter();
+        presenter.setView(view);
     }
     @Test
     public void doNotShowResults(){

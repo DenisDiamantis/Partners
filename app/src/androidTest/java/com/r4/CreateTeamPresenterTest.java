@@ -26,6 +26,7 @@ public class CreateTeamPresenterTest{
         view = new CreateTeamViewStub();
         CreateTeamViewModel viewmodel = new CreateTeamViewModel();
         presenter = viewmodel.getPresenter();
+        presenter.setView(view);
     }
     @Test
     public void invalidCourse(){
