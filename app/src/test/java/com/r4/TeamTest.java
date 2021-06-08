@@ -38,14 +38,14 @@ public class TeamTest{
     }
     @Test
     public void addRequests(){
-        Request request = new Request(sender,team,"Hi");
+        Request request = new Request(sender,team);
         team.addRequests(request);
         Assert.assertEquals(request,team.requests.get(0));
     }
     @Test
     public void acceptRequest(){
         Student newone = new Student("Lionel","Messi","p3152631","lionelthrilos","leo@gmail.com",null,null);
-        Request request = new Request(newone,team,"Hi");
+        Request request = new Request(newone,team);
         team.acceptRequest(request);
         members.add(newone);
         Assert.assertEquals(members,team.getMembers());
@@ -53,7 +53,7 @@ public class TeamTest{
     @Test
     public void declineRequest(){
         Student newone = new Student("Lionel","Messi","p3152631","lionelthrilos","leo@gmail.com",null,null);
-        Request request = new Request(newone,team,"Hi");
+        Request request = new Request(newone,team);
         team.declineRequest(request);
         Assert.assertEquals(false,request.getStatus());
 
@@ -61,10 +61,17 @@ public class TeamTest{
     @Test
     public void checkTeamSize(){//an thelw na ginei to anapodo check bazw maxsize = 2 kai dhmioyrgw eswterika ena temp arraylist
         Student newone = new Student("Lionel","Messi","p3152631","lionelthrilos","leo@gmail.com",null,null);
-        Request request = new Request(newone,team,"Hi");
+        Request request = new Request(newone,team);
         team.acceptRequest(request);
         members.add(newone);
         Assert.assertEquals(members,team.getMembers());
+    }
+    @Test
+    public void getRequests(){
+        Student newone = new Student("Lionel","Messi","p3152631","lionelthrilos","leo@gmail.com",null,null);
+        Request request = new Request(newone,team);
+        team.addRequests(request);
+        Assert.assertEquals(request,team.getRequests().get(0));
     }
 
 }

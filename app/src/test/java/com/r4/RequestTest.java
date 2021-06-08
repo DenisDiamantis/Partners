@@ -12,7 +12,7 @@ public class RequestTest {
     Student founder = new Student("Cristian","Karempe","p3180266","karempepaiktara","karempe@gmail.com",null,null);
     Project project = new Project(course,3,"06/06/2021");
     Team application_team = new Team(project,founder,members,"No requirements");
-    Request request = new Request(sender,application_team,"Hi");
+    Request request = new Request(sender,application_team);
 
     @Test
     public void getSender(){
@@ -21,10 +21,6 @@ public class RequestTest {
     @Test
     public void getApplicationTeam(){
         Assert.assertEquals(application_team,request.getApplicationTeam());
-    }
-    @Test
-    public void getMessage(){
-        Assert.assertEquals("Hi",request.getMessage());
     }
     @Test
     public void getStatus(){

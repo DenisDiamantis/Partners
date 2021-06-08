@@ -3,17 +3,17 @@ package com.r4;
 import com.dao.AccountDAO;
 import com.dao.StudentDAO;
 
-public class SingUpPresenter {
+public class SignUpPresenter {
 
-    private SingUpView view;
+    private SignUpView view;
     private AccountDAO accountDAO;
     private StudentDAO studentDAO;
-    public SingUpPresenter(SingUpView view) {
+    public SignUpPresenter(SignUpView view) {
         this.view=view;
     }
 
 
-    public void singUp(String input_AM,String input_password1,String input_password2,String input_email,String input_name,String input_surname, String input_skills,String input_timeline ){
+    public void signUp(String input_AM, String input_password1, String input_password2, String input_email, String input_name, String input_surname, String input_skills, String input_timeline ){
         int conditions = 0;
         if(accountDAO.checkAMExistance(input_AM)){
             conditions++;

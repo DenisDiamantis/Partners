@@ -1,6 +1,6 @@
 package com.r4;
 
-public interface SingUpView {
+public interface SignUpView {
     public void showMenu();
     public void showError(String error);
 

@@ -14,4 +14,5 @@ public interface MenuView {
     void myTeams();
 
     void editInfo();
+    void onBackPressed();
 }

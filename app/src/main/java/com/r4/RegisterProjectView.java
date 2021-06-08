@@ -6,5 +6,5 @@ public interface RegisterProjectView {
 
     void showSuccess(String project_successfully);
 
-    void showError(String porject_already_exists);
+    void showError(String project_already_exists);
 }

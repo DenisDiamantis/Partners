@@ -10,7 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.dao.CourseDAO;
 import com.dao.Initializer;
+import com.memorydao.CourseMemory;
 import com.memorydao.InitializerMemory;
 
 public class Menu extends AppCompatActivity implements MenuView{
@@ -24,6 +26,7 @@ public class Menu extends AppCompatActivity implements MenuView{
     EditText course_Txt;
     MenuPresenter presenter;
     String user;
+    CourseDAO course = new CourseMemory();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +41,7 @@ public class Menu extends AppCompatActivity implements MenuView{
         course_Txt = findViewById(R.id.Enter_Course);
         editInfo_btn =findViewById(R.id.editInfo);
         presenter=new MenuPresenter(this);
+        presenter.setCourseDAO(course);
         search_team_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -122,6 +126,7 @@ public class Menu extends AppCompatActivity implements MenuView{
         intent.putExtra(CURRENT_USER_AM,user);
         startActivity(intent);
     }
+
 
     @Override
     public void onBackPressed() {

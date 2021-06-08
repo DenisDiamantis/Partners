@@ -16,7 +16,7 @@ public class RegisterProjectPresenter {
     public void createProject(String course,String limit,String deadline){
         Course course1=new Course(course);
         Project project=new Project(course1,Integer.valueOf(limit),deadline);
-        if(projectDAO.checkProject(project)){
+        if(!projectDAO.checkProject(project)){
             courseDAO.saveCourse(course1);
             projectDAO.saveProject(project);
             view.showSuccess("Project successfully registered");

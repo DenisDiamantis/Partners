@@ -12,12 +12,11 @@ import android.widget.Toast;
 import com.dao.AccountDAO;
 import com.dao.StudentDAO;
 import com.memorydao.AccountMemory;
-import com.memorydao.InitializerMemory;
 import com.memorydao.StudentMemory;
 
-public class SignUp extends AppCompatActivity implements SingUpView{
+public class SignUp extends AppCompatActivity implements SignUpView {
 
-    SingUpPresenter presenter;
+    SignUpPresenter presenter;
     String input_AM;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +32,7 @@ public class SignUp extends AppCompatActivity implements SingUpView{
         EditText skills = findViewById(R.id.Student_Skills);
         EditText timeline = findViewById(R.id.Student_Timeline);
         Button continue_btn = findViewById(R.id.button);
-        presenter=new SingUpPresenter(this);
+        presenter=new SignUpPresenter(this);
         AccountDAO accountDAO=new AccountMemory();
         presenter.setAccountDAO(accountDAO);
         StudentDAO studentDAO=new StudentMemory();
@@ -49,7 +48,7 @@ public class SignUp extends AppCompatActivity implements SingUpView{
                 String input_surname= surname.getText().toString();
                 String input_skills=skills.getText().toString();
                 String input_timeline=timeline.getText().toString();
-                presenter.singUp( input_AM, input_password1, input_password2, input_email, input_name, input_surname,input_skills,input_timeline );
+                presenter.signUp( input_AM, input_password1, input_password2, input_email, input_name, input_surname,input_skills,input_timeline );
             }
         });
     }

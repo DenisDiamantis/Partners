@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+
 
 public class StudentTest{
     Course course = new Course("Techno");
@@ -98,6 +98,10 @@ public class StudentTest{
         Assert.assertEquals(true,flag);
     }
     @Test
+    public void getTotalEvaluation(){
+        Assert.assertEquals(0,(int)evaluator.getTotalEvaluation());
+    }
+    @Test
     public void sendRequest(){
         boolean flag = false;
         Request req = sender.sendRequest(team);
@@ -136,5 +140,10 @@ public class StudentTest{
         sender.setPassword("changed");
         Assert.assertEquals("changed",sender.getPassword());
     }
+    @Test
+    public void checkEvaluation(){
+        Assert.assertEquals(true,evaluator.checkEvaluation(evaluatee,team));
+    }
+
 
 }

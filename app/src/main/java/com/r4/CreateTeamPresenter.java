@@ -39,12 +39,12 @@ public class CreateTeamPresenter {
 
     public void createTeam(String course, String user, String requirements){
         if(courseDAO.findCourse(course)){
-            if(!requirements.isEmpty()) {
+            if(!requirements.equals("")) {
                 if (!teamDAO.checksTeams(studentDAO.findStudent(user).getTeams(), course)) {
                     ArrayList<Student> members = new ArrayList<>();
                     members.add(studentDAO.findStudent(user));
                     Team newTeam = new Team(projectDAO.findProject(course), studentDAO.findStudent(user), members, requirements);
-                    Log.e("cousre",projectDAO.findProject(course).getCourse().getTitle());
+                    Log.e("course",projectDAO.findProject(course).getCourse().getTitle());
                     studentDAO.findStudent(user).addTeams(newTeam);
                     teamDAO.saveTeam(newTeam);
                     view.showSuccess("Team creation was successful");
@@ -52,7 +52,7 @@ public class CreateTeamPresenter {
                         view.showErrorCheckTeams("You are already registered with a team for "+course);
                 }
             }else{
-                view.showErrorRequirements("Requirements cannot be null...");
+                view.showErrorRequirements("Requirements cannot be empty...");
             }
 
         }else{

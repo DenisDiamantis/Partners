@@ -15,7 +15,6 @@ public class MenuPresenter {
     }
 
     public void showResults(String course,String user) {
-        courseDAO=new CourseMemory();
         if(course.isEmpty()){
             view.showError("Course cannot be null");
         }else
@@ -32,10 +31,16 @@ public class MenuPresenter {
     public void myTeams(){
         view.myTeams();
     }
+
     public void createTeam(){
         view.createTeam();
     }
+
     public void showMessages(String user) {
         view.showMessages(user);
+    }
+
+    public void setCourseDAO(CourseDAO courseDAO){
+        this.courseDAO = courseDAO;
     }
 }

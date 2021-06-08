@@ -17,13 +17,17 @@ public abstract class Initializer {
     public void prepareData(){
         Course soft_eng=new Course("Software Engineering");
         Course dist_systems=new Course("Distributed Systems");
+        Course databases = new Course("Databases");
+        getCourseDao().saveCourse(databases);
         getCourseDao().saveCourse(soft_eng);
         getCourseDao().saveCourse(dist_systems);
 
+        Project databases_project = new Project(databases,3,"07/12/2021");
         Project r4=new Project(soft_eng,3,"08/06/2021");
         Project tik_tok=new Project(dist_systems,4,"13/06/2021");
         getProjectDAO().saveProject(r4);
         getProjectDAO().saveProject(tik_tok);
+        getProjectDAO().saveProject(databases_project);
 
         Student kleio = new Student("Kleio","Patatsi","p3180266","monoaek","kleiopat@gmail.com","not filled yet","monday-friday mornings");
         Student platonas = new Student("Platonas", "Karageorgis","p3180068","olimpiakara","karaplato@gmail.com","java,Computer science,Artificial Intelligence","only afternoons");

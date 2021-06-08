@@ -15,6 +15,7 @@ import com.memorydao.AccountMemory;
 import com.memorydao.InitializerMemory;
 
 public class LoginScreen extends AppCompatActivity implements  LoginView{
+
     LoginPresenter presenter;
     AccountDAO account=new AccountMemory();
     InitializerMemory initializer;
@@ -69,4 +70,5 @@ public class LoginScreen extends AppCompatActivity implements  LoginView{
         Intent intent = new Intent(this, RegisterProject.class);
         startActivity(intent);
     }
+
 }

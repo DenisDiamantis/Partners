@@ -46,12 +46,15 @@ public class Team {
                 members.add(request.getSender());
                 request.getSender().getTeams().add(this);
                 request.getSender().removeRequest(request);
+                request.setStatus(false);
                 return true;
             }
         return false;
     }
-    public void declineRequest(Request request){
+    public boolean declineRequest(Request request){
         request.getSender().removeRequest(request);
+        request.setStatus(false);
+        return false;
     }
     public boolean checkTeamSize(){
         if(members.size()<project.getMaxNumber()) {
